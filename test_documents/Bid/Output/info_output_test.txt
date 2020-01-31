@@ -1,0 +1,2 @@
+Current highest bid is: $100.00
+Enter your bid:
