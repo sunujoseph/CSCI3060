@@ -1,0 +1,10 @@
+Please log in to the system:
+Please enter your username:
+Enter command:
+Enter Item Name:
+Enter Item Description:
+Enter Item Price:
+Enter Item Auction Duration:
+Item is Live for Auction: Lenovo Tab M10, A 10.1" tablet with great audio and face-recognition login; $190. For 30 days.
+Enter command:
+Logout Successful, Goodbye!
