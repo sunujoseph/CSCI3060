@@ -4,4 +4,5 @@ advertise
 444444
 A toy car.
 20
+50
 logout
