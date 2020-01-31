@@ -1,10 +1,7 @@
 login
 john123smith
 advertise
-itemName
 444444
-itemInfo
 A toy car.
-itemPrice
 20
 logout
