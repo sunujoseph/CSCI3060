@@ -1,1 +1,3 @@
 bid
+username
+itemname
