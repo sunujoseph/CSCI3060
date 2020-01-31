@@ -1,0 +1,23 @@
+Enter Username:
+Enter Transaction:
+Enter Seller Name:
+Enter Item Name: 
+User logged out.
+
+
+Enter Username:
+Enter Transaction:
+Enter Seller Name:
+Enter Item Name: 
+User logged out.
+
+Enter Username:
+Enter Transaction:
+Enter Seller Name:
+Enter Item Name: 
+User logged out.
+
+Enter Username:
+Enter Transaction:
+Error, Seller only accounts may not bid on items.
+User logged out.
