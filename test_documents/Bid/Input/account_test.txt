@@ -3,6 +3,7 @@ AAuser
 bid
 sellername
 itemname
+100
 logout
 
 login
@@ -10,6 +11,7 @@ FSuser
 bid
 sellername
 itemname
+100
 logout
 
 login
@@ -17,6 +19,7 @@ BSuser
 bid
 sellername
 itemname
+100
 logout
 
 login
