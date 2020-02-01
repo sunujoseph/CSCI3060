@@ -1,0 +1,15 @@
+Please log in to the system:
+Please enter your username:
+Enter command:
+Enter Item Name:
+Enter buyer username:
+Enter seller username:
+Enter amount of credit:
+Your request for refund for your Sony PlayStation 4 from ken_adams56 for $200 has been sent...
+Your refund for your Sony PlayStation 4 has been processed. 
+$200 of credit from ken_adams56's account has been removed and has be deposited into john123smith's account.
+Time is: 1:42:48pm
+Recording Transaction into Daily Transaction File...
+Daily Transaction File has been recorded.
+Enter command:
+Logout Successful, Goodbye!

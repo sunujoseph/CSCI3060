@@ -1,0 +1,9 @@
+Please log in to the system:
+Please enter your username:
+Enter command:
+Enter Item Name:
+Enter buyer username:
+Enter seller username:
+Enter amount of credit:
+ERROR: Given Credit amount is invalid. Please enter the correct credit amount in dollars($). 
+Goodbye!

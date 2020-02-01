@@ -1,0 +1,12 @@
+Please log in to the system:
+Please enter your username:
+Enter command:
+Enter Item Name:
+Enter buyer username:
+Enter seller username:
+Enter amount of credit:
+Your request for refund for your Sony PlayStation 4 from ken_adams56 for $5000 has been sent...
+ERROR: Seller ken_adams56 amount of credit did not decrease the right amount. Amount decreased is 256.
+ERROR: Buyer john123smith amount of credit did not increase the right amount. Amount increased is 256. 
+ERROR: Full Refund cannot be done at this time.
+Goodbye!
