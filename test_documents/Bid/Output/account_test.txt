@@ -2,6 +2,7 @@ Enter Username:
 Enter Transaction:
 Enter Seller Name:
 Enter Item Name:
+Current highest bid is: $10.00
 Enter Bid:
 Bid accepted.
 User logged out.
@@ -11,6 +12,7 @@ Enter Username:
 Enter Transaction:
 Enter Seller Name:
 Enter Item Name: 
+Current highest bid is: $10.00
 Bid accepted.
 User logged out.
 
@@ -18,6 +20,7 @@ Enter Username:
 Enter Transaction:
 Enter Seller Name:
 Enter Item Name: 
+Current highest bid is: $10.00
 Bid accepted.
 User logged out.
 
