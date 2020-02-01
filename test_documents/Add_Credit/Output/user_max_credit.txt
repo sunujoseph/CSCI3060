@@ -1,0 +1,10 @@
+Enter user name:
+Enter amount of credit to add to your account:
+Cannot have more than $999,999 in your account.
+Logged out.
+
+Enter user name:
+Enter user name of user to add credit to:
+Enter amount of credit to give to user:
+User cannot have more than $999,999 in their account.
+logged out.
