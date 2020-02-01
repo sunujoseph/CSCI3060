@@ -1,0 +1,4 @@
+logout
+Enter user name:
+Enter amount of money to add to your account:
+logged out.
