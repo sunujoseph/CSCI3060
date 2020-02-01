@@ -1,0 +1,2 @@
+Enter Username:
+Error: Unable to retrieve available tickets file
