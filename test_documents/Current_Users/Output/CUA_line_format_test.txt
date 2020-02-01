@@ -1,1 +1,3 @@
-
+Enter user name:
+CUA file: (prints CUA file to console)
+logged out
