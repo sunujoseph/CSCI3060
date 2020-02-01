@@ -1,5 +1,3 @@
-login
-user1
 logout
 logout
 create
