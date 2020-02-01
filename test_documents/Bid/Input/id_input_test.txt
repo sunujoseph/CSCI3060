@@ -1,3 +1,5 @@
 bid
-username
+sellername
 itemname
+100
+
