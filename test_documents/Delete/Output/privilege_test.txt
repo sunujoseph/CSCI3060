@@ -1,0 +1,20 @@
+login
+Enter user name:
+Enter username to be deleted:
+User: username has been deleted.
+logged out.
+
+login
+Enter user name:
+You do not have permissions to perform this transaction.
+logged out.
+
+login
+Enter user name:
+You do not have permissions to perform this transaction.
+logged out.
+
+login
+Enter user name:
+You do not have permissions to perform this transaction.
+logged out.
