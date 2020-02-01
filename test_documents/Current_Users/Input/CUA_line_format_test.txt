@@ -1,1 +1,4 @@
-test
+Login
+username
+readCUA
+logout
