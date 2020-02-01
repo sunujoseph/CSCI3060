@@ -1,2 +1,7 @@
+Enter user name:
+User name accepted:
 Enter seller's username:
 Enter item name:
+Enter Bid:
+Bid accepted.
+Logged out.
