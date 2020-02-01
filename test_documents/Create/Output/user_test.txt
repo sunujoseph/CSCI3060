@@ -1,0 +1,3 @@
+Enter user name:
+Daily transaction file: (display DTF)
+Logged out.
