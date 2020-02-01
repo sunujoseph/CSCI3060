@@ -1,0 +1,11 @@
+Please log in to the system:
+Please enter your username:
+Enter command:
+Daily Transaction File of 2020/01/31
+Tesla_Model_3_______kevin_woo076____john123smith___100_900.99
+Golden_Necklace_____ken_adams56_____kevin_woo076___043_089.00
+Vintage_Vase________john123smith____kevin_woo076___012_257.38
+Red_Faux_Handbag____kevin_woo076____ken_adams56____002_009.99
+END__________________________________________________________
+Enter command:
+Logout Successful, Goodbye!
