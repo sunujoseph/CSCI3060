@@ -1,0 +1,6 @@
+login
+AAusername
+addcredit
+username
+100
+logout
