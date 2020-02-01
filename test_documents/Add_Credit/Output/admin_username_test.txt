@@ -1,0 +1,4 @@
+Enter user name:
+Enter user name to add credit to:
+Cannot add credit to user than does not exist.
+Logged out.
