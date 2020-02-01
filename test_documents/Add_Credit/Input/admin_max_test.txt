@@ -2,5 +2,5 @@ login
 AAusername
 addcredit
 username
-100
+1001
 logout
