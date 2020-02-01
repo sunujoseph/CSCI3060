@@ -1,8 +1,0 @@
-login
-john123smith
-advertise
-Lenovo Tab M10
-A 10.1" tablet with great audio and face-recognition login.
-190
-30
-logout
