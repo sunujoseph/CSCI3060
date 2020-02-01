@@ -1,0 +1,8 @@
+Please log in to the system:
+Please enter your username:
+Enter command:
+Enter Item Name:
+Enter Item Description:
+Enter Item Price:
+ERROR: You've exceed the Price Limit! Price Limit is $999.99.
+Goodbye!

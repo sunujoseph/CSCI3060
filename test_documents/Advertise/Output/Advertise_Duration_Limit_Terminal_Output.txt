@@ -1,0 +1,9 @@
+Please log in to the system:
+Please enter your username:
+Enter command:
+Enter Item Name:
+Enter Item Description:
+Enter Item Price:
+Enter Item Auction Duration:
+ERROR: Over Auction Duration limit! An Auction can only be listed for a maximum of 100 days.
+Goodbye!
