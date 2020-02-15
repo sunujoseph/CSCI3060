@@ -6,7 +6,7 @@ private:
 	user* userObject;
 
 public:
-	static void login();
+	static session* login();
 
 	void sessionLoop();
 };

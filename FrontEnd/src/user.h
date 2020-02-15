@@ -4,7 +4,5 @@ class user {
 private:
 
 public:
-	user() {
-
-	}
+	user();
 };
