@@ -36,6 +36,8 @@ private:
 	void deleteUser() {
 
 	}
+
+
 public:
 	/*
 	reads the userAccounts file and finds the user details with the
@@ -47,7 +49,7 @@ public:
 	if name is not found returns null
 	*/
 	static session* login() {
-		cin >> 
+		
 	}
 
 	void sessionLoop() {

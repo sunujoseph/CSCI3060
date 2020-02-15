@@ -2,6 +2,8 @@
 #include <string>
 #include <fstream>
 #include <thread>
+#include <condition_variable>
+#include <mutex>
 #include "session.h"
 #include "user.h"
 #include "transactionFileWriter.h"
@@ -10,11 +12,14 @@
 using namespace std;
 
 int main() {
+	thread fileReaderThread(FileReader::run);
 	thread fileWriterThread(transactionFileWriter::start);
-	thread fileReaderThread(FileReader::start);
-	while (!FileReader::ready()) {
+	mutex m = FileReader::getMutex();
+	condition_variable cv = FileReader::getCV();
+	unique_lock<mutex> lk(m);
+	cv.wait(lk);
+	lk.unlock();
 
-	}
 	string command;
 	cin >> command;
 	while (command.compare("login") != 0) {
