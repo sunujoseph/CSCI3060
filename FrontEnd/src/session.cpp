@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <thread>
 #include "Header.h"
 
 using namespace std;
@@ -13,18 +14,13 @@ public:
 		this.userObject = userObject;
 	}
 
-	void login() {
-
+	void login(thread*& fileWriterThread) {
+		
 	}
 
 	void sessionLoop() {
 		string command;
 		cin >> command;
-		if ((user == NULL) && (command.compare("login") != 0)) {
-			cout << "Error: Not Logged In" << endl;
-		}
-		else {
-			login();
-		}
+		
 	}
 };

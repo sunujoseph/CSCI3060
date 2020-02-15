@@ -7,8 +7,13 @@
 using namespace std;
 
 int main() {
-	session curSession();
-	session.sessionLoop();
+	string command;
+	cin >> command;
+	while (command.compare("login") != 0) {
+		cout << "Error: Not Logged In" << endl;
+		cin >> command;
+	}
+	thread fileWriter()
 
 	return 0;
 }
