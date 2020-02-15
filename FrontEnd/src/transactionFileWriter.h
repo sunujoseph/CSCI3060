@@ -1,6 +1,4 @@
-#include <fstream>
-
-using namespace std;
+#pragma once
 
 class transactionFileWriter {
 private:

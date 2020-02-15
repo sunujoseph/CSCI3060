@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 #include <thread>
-#include "Header.h"
 
 using namespace std;
 
@@ -10,11 +9,7 @@ private:
 	user* userObject;
 
 public:
-	session(user* userObject) {
-		this.userObject = userObject;
-	}
-
-	void login(thread*& fileWriterThread) {
+	static void login() {
 		
 	}
 

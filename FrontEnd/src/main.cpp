@@ -2,7 +2,6 @@
 #include <string>
 #include <fstream>
 #include <thread>
-#include "Header.h"
 
 using namespace std;
 
@@ -13,7 +12,9 @@ int main() {
 		cout << "Error: Not Logged In" << endl;
 		cin >> command;
 	}
-	thread fileWriter()
-
+	thread fileWriterThread(transactionFileWriter::start);
+	if (session::login()) {
+		session newSession();
+	}
 	return 0;
 }
