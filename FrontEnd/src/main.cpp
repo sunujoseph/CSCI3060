@@ -13,12 +13,7 @@ using namespace std;
 
 int main() {
 	thread fileReaderThread(FileReader::run);
-	thread fileWriterThread(transactionFileWriter::start);
-	mutex m = FileReader::getMutex();
-	condition_variable cv = FileReader::getCV();
-	unique_lock<mutex> lk(m);
-	cv.wait(lk);
-	lk.unlock();
+	thread fileWriterThread(transactionFileWriter::run);
 
 	string command;
 	cin >> command;

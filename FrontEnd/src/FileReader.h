@@ -11,9 +11,11 @@ private:
 	static mutex m;
 	static condition_variable cv;
 	static const unique_lock<mutex> lk;
-	static bool initialized;
-public:
-	static void run(std::condition_variable& cv, std::mutex& m);
 
-	static bool ready();
+public:
+	static void run();
+
+	static vector<string> getCurrentUserAccounts();
+
+	static vector<string> getAvailableItems();
 };

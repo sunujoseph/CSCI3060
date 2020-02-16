@@ -6,7 +6,7 @@ class transactionFileWriter {
 private:
 
 public:
-	static void start() {
+	static void run() {
 
 	}
 };

@@ -14,6 +14,7 @@ private:
 	static mutex m;
 	static condition_variable cv;
 	static unique_lock<mutex> lk;
+
 public:
 	static void run() {
 		lk.lock();
@@ -26,7 +27,22 @@ public:
 		istream_iterator<string> startAI(availableItemsReader), endAI;
 		availableItems = vector<string>(startAI, endAI);
 		availableItemsReader.close();
-		cv.notify_one();
+		lk.unlock();
+		cv.notify_all();
+	}
+
+	static vector<string> getCurrentUserAccounts() {
+		if (!lk.try_lock()) {
+			cv.wait(lk);
+		}
+		return currentUserAccounts;
+	}
+
+	static vector<string> getAvailableItems() {
+		if (!lk.try_lock()) {
+			cv.wait(lk);
+		}
+		return availableItems;
 	}
 	
 };
