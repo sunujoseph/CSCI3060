@@ -15,7 +15,7 @@ private:
 public:
 	static void run();
 
-	static vector<string> getCurrentUserAccounts();
+	static vector<string>& getCurrentUserAccounts();
 
-	static vector<string> getAvailableItems();
+	static vector<string>& getAvailableItems();
 };
