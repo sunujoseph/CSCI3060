@@ -26,7 +26,9 @@ private:
 
 public:
 	static void run() {
-		lk.lock();
+		if (!lk.try_lock()) {
+			cv.wait(lk);
+		}
 		ifstream userAccountsReader("current user accounts.txt");
 		//istream_iterator<string> startCUA(userAccountsReader), endCUA;
 		//currentUserAccounts = vector<string>(startCUA, endCUA);
@@ -51,6 +53,8 @@ public:
 			cv.wait(lk);
 		}
 		vector<string> ret = currentUserAccounts;
+		lk.unlock();
+		cv.notify_all();
 		return ret;
 	}
 
@@ -59,6 +63,8 @@ public:
 			cv.wait(lk);
 		}
 		vector<string> ret = availableItems;
+		lk.unlock();
+		cv.notify_all();
 		return ret;
 	}
 	

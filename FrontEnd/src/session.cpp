@@ -97,8 +97,35 @@ public:
 
 	void sessionLoop() {
 		string command;
-		cin >> command;
-		
+		while (command.compare("logout") != 0) {
+			cin >> command;
+
+			if (command.compare("login") == 0) {
+				cout << "Error: Already Logged In" << endl;
+			}
+			else if (command.compare("logout") == 0) {
+
+			}
+			else if (command.compare("advertise") == 0) {
+
+			}
+			else if (command.compare("bid") == 0) {
+
+			}
+			else if (command.compare("create") == 0) {
+
+			}
+			else if (command.compare("addcredit") == 0) {
+
+			}
+			else if (command.compare("refund") == 0) {
+
+			}
+			else if (command.compare("delete") == 0) {
+
+			}
+			
+		}
 	}
 
 	session(user* userObject) {

@@ -25,5 +25,6 @@ int main() {
 	if ((newSession = session::login()) != NULL) {
 		newSession->sessionLoop();
 	}
+	delete newSession;
 	return 0;
 }
