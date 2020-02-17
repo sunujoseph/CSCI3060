@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <thread>
 #include "user.h"
 #include "FileReader.h"
 #include "transactionFileWriter.h"

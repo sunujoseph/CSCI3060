@@ -2,6 +2,7 @@
 #include <mutex>
 #include <condition_variable>
 #include <vector>
+#include <string>
 
 class transactionFileWriter {
 private:

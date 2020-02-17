@@ -65,6 +65,7 @@ public:
 		cv.notify_all();
 	}
 
+	//add transaction to the daily transaction file
 	static void add(string transaction) {
 		if (!lk.try_lock()) {
 			cv.wait(lk);
