@@ -3,6 +3,7 @@
 #include <thread>
 #include "user.h"
 #include "FileReader.h"
+#include "transactionFileWriter.h"
 
 using namespace std;
 
@@ -11,7 +12,15 @@ private:
 	user* userObject;
 
 	void logout() {
-
+		string transaction;
+		transaction += "00 ";
+		transaction += userObject->getUsername();
+		transaction += " ";
+		transaction += userObject->getUserTypeAsString();
+		transaction += " ";
+		transaction += to_string(userObject->getCredit());
+		transactionFileWriter::add(transaction);
+		transactionFileWriter::writeOut();
 	}
 
 	void advertise() {
@@ -70,6 +79,7 @@ private:
 		}
 		temp2[16] = '\0';
 		username = string(temp2);
+		return username;
 	}
 
 public:
@@ -97,14 +107,15 @@ public:
 
 	void sessionLoop() {
 		string command;
-		while (command.compare("logout") != 0) {
+		while (true) {
 			cin >> command;
 
 			if (command.compare("login") == 0) {
 				cout << "Error: Already Logged In" << endl;
 			}
 			else if (command.compare("logout") == 0) {
-
+				logout();
+				break;
 			}
 			else if (command.compare("advertise") == 0) {
 
@@ -124,7 +135,9 @@ public:
 			else if (command.compare("delete") == 0) {
 
 			}
-			
+			else {
+				cout << "Error: Invalid Command" << endl;
+			}
 		}
 	}
 
