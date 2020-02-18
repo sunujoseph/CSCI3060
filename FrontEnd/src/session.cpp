@@ -46,39 +46,41 @@ private:
 
 	}
 
-	static string getUsername() {
-		string username;
+	static string getInputWithSpaces(string prompt, string errorMsg, int maxLength) {
 		string input;
-		char temp[17];
-		bool validName = false;
-		while (!validName) {
-			cout << "Enter Username: ";
+		char* temp = new char[maxLength + 2];
+		bool validInput = false;
+		while (!validInput) {
+			cout << prompt;
+			//using ">>" blocks until user enters new line character, but only retrieves input
+			//up to first whitespace character
 			cin >> input;
-			
-			//everything below this point, except for length checking, is to allow usernames to contain spaces
-			
-			cin.readsome(temp, 16 - input.length());
-			if ((cin.gcount() + input.length() > 16) || (cin.gcount() + input.length() < 2)) {
-				cout << "Error: Invalid Username" << endl;
+			//get remaining input contained in cin
+			cin.readsome(temp, maxLength + 1 - input.length());
+			if ((cin.gcount() + input.length() > maxLength + 1) || (cin.gcount() + input.length() < 2)) {
+				cout << errorMsg << endl;
 			}
 			else {
-				validName = true;
+				validInput = true;
 			}
 		}
-		char temp2[16];
+		char* combinedInput = new char[maxLength + 1];
 		const char* inputTemp = input.c_str();
 		for (int i = 0; i < input.length(); i++) {
-			temp2[i] = inputTemp[i];
+			combinedInput[i] = inputTemp[i];
 		}
 		for (int i = 0; i < cin.gcount() - 2; i++) {
-			temp2[input.length() + i] = temp[i];
+			combinedInput[input.length() + i] = temp[i];
 		}
-		for (int i = input.length() + cin.gcount() - 1; i < 16; i++) {
-			temp2[i] = ' ';  //add spaces for comparisson with CUA usernames
+		for (int i = input.length() + cin.gcount() - 1; i < maxLength + 1; i++) {
+			combinedInput[i] = ' ';  //add spaces for padding
 		}
-		temp2[16] = '\0';
-		username = string(temp2);
-		return username;
+		combinedInput[maxLength + 1] = '\0';
+		string retInput = string(combinedInput);
+		delete temp;
+		delete combinedInput;
+		delete inputTemp;
+		return retInput;
 	}
 
 public:
@@ -92,7 +94,7 @@ public:
 	if name is not found returns null
 	*/
 	static session* login() {
-		string username = session::getUsername();
+		string username = getInputWithSpaces("Enter Username: ", "Error: Invalid Username", 15);
 
 		vector<string> currentUserAccounts = FileReader::getCurrentUserAccounts();
 		for (int i = 0; i < currentUserAccounts.size() - 1; i++) {
