@@ -27,7 +27,14 @@ private:
 			cout << "Error: You Do Not Have Privileges To Perform This Transaction" << endl;
 			return;
 		}
-
+		string name = getInputWithSpaces("Enter Item Name: ", "Error: Invalid Name", 25);
+		double minBid = getMonetaryInput("Enter Minimum Bid: ", [](string input) {
+			double val = stod(input);
+			if ((val < 0) || (val > 999.99)) {
+				return false;
+			}
+			return true;
+		});
 	}
 
 	void bid() {
@@ -85,6 +92,32 @@ private:
 		delete combinedInput;
 		delete inputTemp;
 		return retInput;
+	}
+
+	static double getMonetaryInput(string prompt, bool (*constraintF)(string)) {
+		string input;
+		bool validInput = false;
+		while (!validInput) {
+			cout << prompt;
+			cin >> input;
+			//check if any remaining input in cin
+			if (cin.peek() != '\n') {
+				cout << "Error: Invalid Input" << endl;
+			}
+			for (int i = 0; i < input.length(); i++) {
+				if ((input[i] == '.') && (input.length() - i > 3)) {
+					cout << "Error: Monetary Values Can Have Max 2 Decimal Precision" << endl;
+				}
+			}
+			if (constraintF(input)) {
+				validInput = true;
+			}
+			else {
+				validInput = false;
+			}
+		}
+		
+		return stod(input);
 	}
 
 public:
