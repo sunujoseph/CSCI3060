@@ -208,7 +208,7 @@ void session::refund() {
 	user* buyerObject;
 	user* sellerObject;
 	//buyer exists
-	String buyerUsername = = getInputWithSpaces("Enter Buyer Username: ", "Error: Invalid Username", 15);
+	string buyerUsername = getInputWithSpaces("Enter Buyer Username: ", "Error: Invalid Username", 15);
 	vector<string> currentUserAccounts = FileReader::getCurrentUserAccounts();
 	for (int i = 0; i < currentUserAccounts.size() - 1; i++) {
 		string& line = currentUserAccounts[i];
@@ -217,7 +217,7 @@ void session::refund() {
 		}
 	}
 	//seller exists
-	String sellerUsername = = getInputWithSpaces("Enter Seller Username: ", "Error: Invalid Username", 15);
+	string sellerUsername = getInputWithSpaces("Enter Seller Username: ", "Error: Invalid Username", 15);
 	vector<string> currentUserAccounts = FileReader::getCurrentUserAccounts();
 	for (int i = 0; i < currentUserAccounts.size() - 1; i++) {
 		string& line = currentUserAccounts[i];
@@ -227,7 +227,7 @@ void session::refund() {
 	}
 	// checks correct bid amount
 	// refund doesn't have a limit
-	string refund = getMonetaryInputAsString("Enter Minimum Bid: ", [](string input) {
+	string refund = getMonetaryInputAsString("Enter Minimum Bid: ", [sellerObject](string input) {
 		double val = stod(input);
 		if (val < 0) {
 			cout << "Error: Minimum Refund Cannot Be Negative" << endl;
@@ -400,15 +400,3 @@ void session::sessionLoop() {
 session::session(user* userObject) {
 	this->userObject = userObject;
 }
-© 2020 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Help
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
