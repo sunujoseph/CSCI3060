@@ -22,7 +22,7 @@ private:
 public:
 	static void run(std::string path);
 
-	static std::vector<std::string>& getCurrentUserAccounts();
+	static std::vector<std::string> getCurrentUserAccounts();
 
-	static std::vector<std::string>& getAvailableItems();
+	static std::vector<std::string> getAvailableItems();
 };

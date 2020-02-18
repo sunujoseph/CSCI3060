@@ -12,11 +12,25 @@ int main() {
 	//get locations of files
 	char currentPath[FILENAME_MAX];
 	_getcwd(currentPath, sizeof(currentPath));
-	string newPath(currentPath);
-	string userPath;
+	int slashes = 1;
+	for (int i = FILENAME_MAX; i >= 0; i--) {
+		if (currentPath[i] == '\\') {
+			if (slashes == 0) {
+				currentPath[i + 1] = 's';
+				currentPath[i + 2] = 'r';
+				currentPath[i + 3] = 'c';
+				currentPath[i + 4] = '\\';
+				currentPath[i + 5] = '\0';
+				break;
+			}
+			slashes--;
+		}
+		currentPath[i] = -52;
+	}
+	string filePath(currentPath);
 
-	thread fileReaderThread(FileReader::run);
-	thread fileWriterThread(transactionFileWriter::run);
+	thread fileReaderThread(FileReader::run, filePath);
+	thread fileWriterThread(transactionFileWriter::run, filePath);
 
 	string command;
 	cin >> command;
@@ -28,6 +42,8 @@ int main() {
 	if ((newSession = session::login()) != NULL) {
 		newSession->sessionLoop();
 	}
-	delete newSession;
+	if (newSession != NULL) {
+		delete newSession;
+	}
 	return 0;
 }

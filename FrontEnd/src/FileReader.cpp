@@ -50,7 +50,7 @@ void FileReader::run(string path) {
 	cv.notify_all();
 }
 
-vector<string>& FileReader::getCurrentUserAccounts() {
+vector<string> FileReader::getCurrentUserAccounts() {
 	if (!lk.try_lock()) {
 		cv.wait(lk);
 	}
@@ -60,7 +60,7 @@ vector<string>& FileReader::getCurrentUserAccounts() {
 	return ret;
 }
 
-vector<string>& FileReader::getAvailableItems() {
+vector<string> FileReader::getAvailableItems() {
 	if (!lk.try_lock()) {
 		cv.wait(lk);
 	}
