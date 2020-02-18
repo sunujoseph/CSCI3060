@@ -27,14 +27,47 @@ private:
 			cout << "Error: You Do Not Have Privileges To Perform This Transaction" << endl;
 			return;
 		}
-		string name = getInputWithSpaces("Enter Item Name: ", "Error: Invalid Name", 25);
-		double minBid = getMonetaryInput("Enter Minimum Bid: ", [](string input) {
+		string itemName = getInputWithSpaces("Enter Item Name: ", "Error: Invalid Name", 25);
+		string minBid = getMonetaryInputAsString("Enter Minimum Bid: ", [](string input) {
 			double val = stod(input);
-			if ((val < 0) || (val > 999.99)) {
+			if (val < 0) {
+				cout << "Error: Minimum Bid Cannot Be Negative" << endl;
+				return false;
+			}
+			else if (val > 999.99) {
+				cout << "Error: Maximum Price For Item Is 999.99" << endl;
 				return false;
 			}
 			return true;
 		});
+		string period;
+		bool validPeriod = false;
+		while (!validPeriod) {
+			cout << "Enter Number Of Days Until Auction Ends: ";
+			cin >> period;
+			if (cin.peek() != '\n') {
+				cout << "Error: Invalid Input" << endl;
+			}
+			else if (stoi(period) < 0) { //assume days until auction starts when item becomes available
+				cout << "Error>: Number Of Days Until Auction Ends Cannot Be Negative" << endl;
+			}
+			else if (stoi(period) > 100) {
+				cout << "Error: Maximum Number Of Days Until Auction Ends Is 100" << endl;
+			}
+			else {
+				validPeriod = true;
+			}
+		}
+
+		string transaction;
+		transaction += "03 ";
+		transaction += pad(itemName, 25, ' ', 'l');
+		transaction += " ";
+		transaction += userObject->getUsername();
+		transaction += " ";
+		transaction += pad(period, 3, '0', 'r');
+		transaction += pad(minBid, 6, '0', 'r');
+		transactionFileWriter::add(transaction);
 	}
 
 	void bid() {
@@ -88,13 +121,13 @@ private:
 		}
 		combinedInput[maxLength + 1] = '\0';
 		string retInput = string(combinedInput);
-		delete temp;
-		delete combinedInput;
-		delete inputTemp;
+		delete[] temp;
+		delete[] combinedInput;
+		delete[] inputTemp;
 		return retInput;
 	}
 
-	static double getMonetaryInput(string prompt, bool (*constraintF)(string)) {
+	static string getMonetaryInputAsString(string prompt, bool (*constraintF)(string)) {
 		string input;
 		bool validInput = false;
 		while (!validInput) {
@@ -112,12 +145,38 @@ private:
 			if (constraintF(input)) {
 				validInput = true;
 			}
-			else {
-				validInput = false;
+		}
+		return input;
+	}
+
+	static double getMonetaryInput(string prompt, bool (*constraintF)(string)) {
+		return stod(getMonetaryInputAsString(prompt, constraintF));
+	}
+
+	static string pad(string data, int size, char padding, char side) {
+		char* paddedData = new char[size + 1];
+		const char* dataCStr = data.c_str();
+		if (side == 'r') {
+			for (int i = 0; i < size - data.length(); i++) {
+				paddedData[i] = padding;
+			}
+			for (int i = 0; i < data.length(); i++) {
+				paddedData[i + size - data.length()] = dataCStr[i];
 			}
 		}
-		
-		return stod(input);
+		else {
+			for (int i = 0; i < data.length(); i++) {
+				paddedData[i] = dataCStr[i];
+			}
+			for (int i = size - data.length(); i < size; i++) {
+				paddedData[i] = padding;
+			}
+		}
+		paddedData[size] = '\0';
+		string retData(paddedData);
+		delete[] paddedData;
+		delete[] dataCStr;
+		return retData;
 	}
 
 public:

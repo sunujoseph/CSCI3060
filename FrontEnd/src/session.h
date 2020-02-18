@@ -13,7 +13,10 @@ private:
 	void addCredit();
 	void refund();
 	void deleteUser();
-	static string getUsername();
+	static string getInputWithSpaces(string prompt, string errorMsg, int maxLength);
+	static string getMonetaryInputAsString(string prompt, bool(*constraintF)(string));
+	static double getMonetaryInput(string prompt, bool(*constraintF)(string));
+	static string pad(string data, int size, char side);
 
 public:
 	static session* login();
