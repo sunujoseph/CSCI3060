@@ -71,7 +71,33 @@ void session::advertise() {
 }
 
 void session::bid() {
-
+	// bid item
+	// check user types
+	if ((userObject->getUserType() & (user::ADMIN | user::FULL_STANDARD) != userObject->getUserType()) {
+		cout << "Error: You Do Not Have Privileges To Perform This Transaction" << endl;
+		return;
+	}
+	string itemName = getInputWithSpaces("Enter Item Name: ", "Error: Invalid Name", 25);
+		vector<string> currentAvailableItems = FileReader::getAvailableItems();
+		for (int i = 0; i < currentAvailableItems.size() - 1; i++) {
+			string& line = currentAvailableItems[i];
+				if (line.substr(0, 26).compare(itemName) == 0) {
+					//got item name
+					//then get item price
+				}
+		}
+	double preprice = 200.00; // temp value, need to get item price.
+	string minBid = getMonetaryInputAsString("Enter Minimum Bid: ", [](string input) {
+		double val = stod(input);
+		if (val < 0) {
+			cout << "Error: Minimum Bid Cannot Be Negative" << endl;
+			return false;
+		}
+		else if (val < (preprice + (preprice*0.05))) {
+			// val must be higher by 5% the prev bid
+		}
+		return true;
+	});
 }
 
 void session::create() {
