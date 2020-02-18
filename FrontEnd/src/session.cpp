@@ -7,7 +7,10 @@
 
 using namespace std;
 
+//logs out of session
 void session::logout() {
+
+
 	string transaction;
 	transaction += "00 ";
 	transaction += userObject->getUsername();
@@ -72,59 +75,7 @@ void session::bid() {
 }
 
 void session::create() {
-	if ((userObject->getUserType() & (user::ADMIN)) != userObject->getUserType()) {
-		cout << "Error: You Do Not Have Privileges To Perform This Transaction" << endl;
-		return;
-	}
-	string newUsername;
-	while (true) {
-		newUsername = getInputWithSpaces("Enter Username For New User: ", "Error: Invalid Name", 15);
-		vector<string> currentUserAccounts = FileReader::getCurrentUserAccounts();
-		for (int i = 0; i < currentUserAccounts.size() - 1; i++) {
-			string& line = currentUserAccounts[i];
-			if (line.substr(0, 15).compare(newUsername) == 0) {
-				cout << "Error: User With That Name Already Exists" << endl;
-				continue;
-			}
-		}
-		break;
-	}
 
-	string newUserType;
-	while (true) {
-		cin >> newUserType;
-		if (cin.peek() != '\n') {
-			cout << "Error: Invalid Input" << endl;
-		}
-		else if (newUserType.compare("admin") == 0) {
-			newUserType = "AA";
-			break;
-		}
-		else if (newUserType.compare("full-standard") == 0) {
-			newUserType = "FS";
-			break;
-		}
-		else if (newUserType.compare("buy-standard") == 0) {
-			newUserType = "BS";
-			break;
-		}	
-		else if (newUserType.compare("sell-standard") == 0) {
-			newUserType = "SS";
-			break;
-		}
-		else {
-			cout << "Error: New User Type Must Be One Of (admin, full-standard, buy-standard, sell-standard)" << endl;
-		}
-	}
-
-	string transaction;
-	transaction += "01 ";
-	transaction += newUsername;
-	transaction += " ";
-	transaction += newUserType;
-	transaction += " ";
-	transaction += pad("", 9, '0', 'r');
-	transactionFileWriter::add(transaction);
 }
 
 void session::addCredit() {
@@ -208,7 +159,7 @@ void session::refund() {
 	user* buyerObject;
 	user* sellerObject;
 	//buyer exists
-	string buyerUsername = getInputWithSpaces("Enter Buyer Username: ", "Error: Invalid Username", 15);
+	String buyerUsername = = getInputWithSpaces("Enter Buyer Username: ", "Error: Invalid Username", 15);
 	vector<string> currentUserAccounts = FileReader::getCurrentUserAccounts();
 	for (int i = 0; i < currentUserAccounts.size() - 1; i++) {
 		string& line = currentUserAccounts[i];
@@ -217,7 +168,7 @@ void session::refund() {
 		}
 	}
 	//seller exists
-	string sellerUsername = getInputWithSpaces("Enter Seller Username: ", "Error: Invalid Username", 15);
+	String sellerUsername = = getInputWithSpaces("Enter Seller Username: ", "Error: Invalid Username", 15);
 	vector<string> currentUserAccounts = FileReader::getCurrentUserAccounts();
 	for (int i = 0; i < currentUserAccounts.size() - 1; i++) {
 		string& line = currentUserAccounts[i];
@@ -227,7 +178,7 @@ void session::refund() {
 	}
 	// checks correct bid amount
 	// refund doesn't have a limit
-	string refund = getMonetaryInputAsString("Enter Minimum Bid: ", [sellerObject](string input) {
+	string refund = getMonetaryInputAsString("Enter Minimum Bid: ", [](string input) {
 		double val = stod(input);
 		if (val < 0) {
 			cout << "Error: Minimum Refund Cannot Be Negative" << endl;
@@ -249,7 +200,28 @@ void session::refund() {
 	transactionFileWriter::add(transaction);
 }
 
+//deletes user
 void session::deleteUser() {
+	//only allows admins to delete users
+	if ((userObject->getUserType() & (user::ADMIN)) != userObject->getUserType()) {
+		cout << "Error: You Do Not Have Privileges To Perform This Transaction" << endl;
+		return;
+	}
+
+	//gets user to be deleted
+	String deletedUser = getInputWithSpaces("Enter Username of User to Delete: ", "Error: Invalid Username", 15);
+
+
+	//send to transaction
+	string transaction;
+	transaction += "02 ";
+	transaction += deletedUser;
+	transaction += " ";
+	transaction += "AA";
+	transaction += " ";
+	transaction += "000000000";
+	transactionFileWriter::add(transaction);
+
 
 }
 
