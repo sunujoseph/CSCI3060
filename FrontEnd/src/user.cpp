@@ -4,11 +4,12 @@ using namespace std;
 
 class user {
 private:
-	static enum userTypes : unsigned int {ADMIN = 0b1000, FULL_STANDARD = 0b0100, BUY_STANDARD = 0b0010, SELL_STANDARD = 0b0001};
 	string username;
 	unsigned int userType : 4;
 	double credit;
 public:
+	enum userTypes : unsigned int { ADMIN = 0b1000, FULL_STANDARD = 0b0100, BUY_STANDARD = 0b0010, SELL_STANDARD = 0b0001 };
+
 	user(string username, string userType, string credit) {
 		this->username = username;
 		if (userType.compare("AA") == 0) {

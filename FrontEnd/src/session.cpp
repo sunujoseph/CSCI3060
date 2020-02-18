@@ -23,6 +23,10 @@ private:
 	}
 
 	void advertise() {
+		if ((userObject->getUserType & (user::ADMIN | user::FULL_STANDARD | user::SELL_STANDARD)) != userObject->getUserType) {
+			cout << "Error: You Do Not Have Privileges To Perform This Transaction" << endl;
+			return;
+		}
 
 	}
 
