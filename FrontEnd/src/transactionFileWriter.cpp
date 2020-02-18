@@ -15,12 +15,17 @@ mutex transactionFileWriter::m;
 mutex transactionFileWriter::midnightM;
 condition_variable transactionFileWriter::cv;
 condition_variable transactionFileWriter::midnightCV;
-unique_lock<mutex> transactionFileWriter::lk = unique_lock<mutex>(m);
-//only used as blank arg for cv.wait_until
-unique_lock<mutex> transactionFileWriter::midnightLock = unique_lock<mutex>(midnightM);
+unique_lock<mutex> transactionFileWriter::lk;
+//only used as blank arg for cv.wait_until, lock is never obtained
+unique_lock<mutex> transactionFileWriter::midnightLock;
+string transactionFileWriter::filePath;
 
 //waits until midnight, then writes out dailyTransactionFile to a file
-void transactionFileWriter::run() {
+void transactionFileWriter::run(string path) {
+	lk = unique_lock<mutex>(m);
+	filePath = path;
+	lk.unlock();
+	midnightLock = unique_lock<mutex>(midnightM);
 	//setup timer for midnight
 	tm midnightTime;
 	time_t curTime = time(nullptr); //curTime in seconds
@@ -35,7 +40,7 @@ void transactionFileWriter::run() {
 	if (!lk.try_lock()) {
 		cv.wait(lk);
 	}
-	string fileName(to_string(fileNameTime.tm_mon) + "-" + to_string(fileNameTime.tm_mday) + "-" +
+	string fileName(filePath + to_string(fileNameTime.tm_mon) + "-" + to_string(fileNameTime.tm_mday) + "-" +
 		to_string(fileNameTime.tm_year) + ".txt");
 	ofstream dTFWriter(fileName);
 	ostream_iterator<string> out_it(dTFWriter, "\n");
@@ -43,7 +48,6 @@ void transactionFileWriter::run() {
 	dTFWriter.close();
 	lk.unlock();
 	cv.notify_all();
-	midnightLock.unlock();
 }
 
 //forced write out of dailyTransactionFile, called in session::logout
@@ -55,7 +59,7 @@ void transactionFileWriter::writeOut() {
 	if (!lk.try_lock()) {
 		cv.wait(lk);
 	}
-	string fileName(to_string(fileNameTime.tm_mon) + "-" + to_string(fileNameTime.tm_mday) + "-" +
+	string fileName(filePath + to_string(fileNameTime.tm_mon) + "-" + to_string(fileNameTime.tm_mday) + "-" +
 		to_string(fileNameTime.tm_year) + ".txt");
 	ofstream dTFWriter(fileName);
 	ostream_iterator<string> out_it(dTFWriter, "\n");

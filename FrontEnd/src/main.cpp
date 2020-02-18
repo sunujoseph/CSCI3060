@@ -4,10 +4,17 @@
 #include "session.h"
 #include "transactionFileWriter.h"
 #include "FileReader.h"
+#include <direct.h>
 
 using namespace std;
 
 int main() {
+	//get locations of files
+	char currentPath[FILENAME_MAX];
+	_getcwd(currentPath, sizeof(currentPath));
+	string newPath(currentPath);
+	string userPath;
+
 	thread fileReaderThread(FileReader::run);
 	thread fileWriterThread(transactionFileWriter::run);
 

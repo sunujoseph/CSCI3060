@@ -116,11 +116,10 @@ string session::getInputWithSpaces(string prompt, string errorMsg, int maxLength
 	for (int i = input.length() + cin.gcount() - 1; i < maxLength + 1; i++) {
 		combinedInput[i] = ' ';  //add spaces for padding
 	}
-	combinedInput[maxLength + 1] = '\0';
+	combinedInput[maxLength] = '\0';
 	string retInput = string(combinedInput);
 	delete[] temp;
 	delete[] combinedInput;
-	delete[] inputTemp;
 	return retInput;
 }
 
