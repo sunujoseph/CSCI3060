@@ -4,18 +4,24 @@
 #include <vector>
 #include <string>
 
+template <typename T>
+class vecRef : public std::vector<T> {
+public:
+	T& addBack();
+};
+
 class FileReader {
 private:
-	static vector<string> currentUserAccounts;
-	static vector<string> availableItems;
-	static mutex m;
-	static condition_variable cv;
-	static const unique_lock<mutex> lk;
+	static vecRef<std::string> currentUserAccounts;
+	static vecRef<std::string> availableItems;
+	static std::mutex m;
+	static std::condition_variable cv;
+	static std::unique_lock<std::mutex> lk;
 
 public:
 	static void run();
 
-	static vector<string>& getCurrentUserAccounts();
+	static std::vector<std::string>& getCurrentUserAccounts();
 
-	static vector<string>& getAvailableItems();
+	static std::vector<std::string>& getAvailableItems();
 };

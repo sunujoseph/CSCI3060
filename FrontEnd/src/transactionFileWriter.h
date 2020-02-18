@@ -6,15 +6,15 @@
 
 class transactionFileWriter {
 private:
-	static vector<string> dailyTransactionFile;
-	static mutex m;
-	static mutex midnightM;
-	static condition_variable cv;
-	static condition_variable midnightCV;
-	static unique_lock<mutex> midnightLock;
-	static unique_lock<mutex> lk;
+	static std::vector<std::string> dailyTransactionFile;
+	static std::mutex m;
+	static std::mutex midnightM;
+	static std::condition_variable cv;
+	static std::condition_variable midnightCV;
+	static std::unique_lock<std::mutex> midnightLock;
+	static std::unique_lock<std::mutex> lk;
 public:
 	static void run();
 	static void writeOut();
-	static void add(string transaction);
+	static void add(std::string transaction);
 };

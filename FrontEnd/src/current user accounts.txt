@@ -1,0 +1,3 @@
+user1           BS 123456.78
+admin1          AA 000150.78
+END                         
