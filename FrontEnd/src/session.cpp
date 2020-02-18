@@ -75,7 +75,59 @@ void session::bid() {
 }
 
 void session::create() {
+	if ((userObject->getUserType() & (user::ADMIN)) != userObject->getUserType()) {
+		cout << "Error: You Do Not Have Privileges To Perform This Transaction" << endl;
+		return;
+	}
+	string newUsername;
+	while (true) {
+		newUsername = getInputWithSpaces("Enter Username For New User: ", "Error: Invalid Name", 15);
+		vector<string> currentUserAccounts = FileReader::getCurrentUserAccounts();
+		for (int i = 0; i < currentUserAccounts.size() - 1; i++) {
+			string& line = currentUserAccounts[i];
+			if (line.substr(0, 15).compare(newUsername) == 0) {
+				cout << "Error: User With That Name Already Exists" << endl;
+				continue;
+			}
+		}
+		break;
+	}
 
+	string newUserType;
+	while (true) {
+		cin >> newUserType;
+		if (cin.peek() != '\n') {
+			cout << "Error: Invalid Input" << endl;
+		}
+		else if (newUserType.compare("admin") == 0) {
+			newUserType = "AA";
+			break;
+		}
+		else if (newUserType.compare("full-standard") == 0) {
+			newUserType = "FS";
+			break;
+		}
+		else if (newUserType.compare("buy-standard") == 0) {
+			newUserType = "BS";
+			break;
+		}
+		else if (newUserType.compare("sell-standard") == 0) {
+			newUserType = "SS";
+			break;
+		}
+		else {
+			cout << "Error: New User Type Must Be One Of (admin, full-standard, buy-standard, sell-standard)" << endl;
+		}
+	}
+
+	string transaction;
+	transaction += "01 ";
+	transaction += newUsername;
+	transaction += " ";
+	transaction += newUserType;
+	transaction += " ";
+	transaction += pad("", 9, '0', 'r');
+	transactionFileWriter::add(transaction);
 }
 
 void session::addCredit() {
