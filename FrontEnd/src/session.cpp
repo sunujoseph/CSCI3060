@@ -148,7 +148,53 @@ void session::addCredit() {
 }
 
 void session::refund() {
-
+	// privileged transaction done by admins only
+	if ((userObject->getUserType() & (user::ADMIN)) != userObject->getUserType()) {
+		cout << "Error: You Do Not Have Privileges To Perform This Transaction" << endl;
+		return;
+	}
+	user* buyerObject;
+	user* sellerObject;
+	//buyer exists
+	String buyerUsername = = getInputWithSpaces("Enter Buyer Username: ", "Error: Invalid Username", 15);
+	vector<string> currentUserAccounts = FileReader::getCurrentUserAccounts();
+	for (int i = 0; i < currentUserAccounts.size() - 1; i++) {
+		string& line = currentUserAccounts[i];
+		if (line.substr(0, 15).compare(buyerUsername) == 0) {
+			buyerObject = new user(line.substr(0, 15), line.substr(16, 2), line.substr(19, 9));
+		}
+	}
+	//seller exists
+	String sellerUsername = = getInputWithSpaces("Enter Seller Username: ", "Error: Invalid Username", 15);
+	vector<string> currentUserAccounts = FileReader::getCurrentUserAccounts();
+	for (int i = 0; i < currentUserAccounts.size() - 1; i++) {
+		string& line = currentUserAccounts[i];
+		if (line.substr(0, 15).compare(sellerUsername) == 0) {
+			sellerObject = new user(line.substr(0, 15), line.substr(16, 2), line.substr(19, 9));
+		}
+	}
+	// checks correct bid amount
+	// refund doesn't have a limit
+	string refund = getMonetaryInputAsString("Enter Minimum Bid: ", [](string input) {
+		double val = stod(input);
+		if (val < 0) {
+			cout << "Error: Minimum Refund Cannot Be Negative" << endl;
+			return false;
+		}
+		else if (val >= (sellerObject->getCredit())) {
+			cout << "Error: Seller's Credit is too low for this refund" << endl;
+		}
+		return true;
+	});
+	//send to transaction
+	string transaction;
+	transaction += "05 ";
+	transaction += buyerObject->getUsername();
+	transaction += " ";
+	transaction += sellerObject->getUsername();
+	transaction += " ";
+	transaction += pad(refund, 9, '0', 'r');
+	transactionFileWriter::add(transaction);
 }
 
 void session::deleteUser() {
