@@ -14,6 +14,7 @@ private:
 	static std::unique_lock<std::mutex> midnightLock;
 	static std::unique_lock<std::mutex> lk;
 	static std::string filePath;
+
 public:
 	static void run(std::string path);
 	static void writeOut();
