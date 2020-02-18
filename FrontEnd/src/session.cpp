@@ -128,11 +128,125 @@ void session::create() {
 }
 
 void session::addCredit() {
+	//only allows admin or full standard users to add credit
+	if ((userObject->getUserType() & (user::ADMIN | user::FULL_STANDARD)) != userObject->getUserType()) {
+		cout << "Error: You Do Not Have Privileges To Perform This Transaction" << endl;
+		return;
+	}
 
+
+	//path for if user is admin type is different than if user is full standard
+	//admin path first
+	if ((userObject->getUserType() & (user::ADMIN)) != userObject->getUserType()) {
+		string userName = getInputWithSpaces("Enter User Name To Add Credit To: ", "Error: Invalid User Name", 15);
+		string creditAmount = getMonetaryInputAsString("Enter Amount To Add: ", [](string input) {
+			double val = stod(input);
+			if (val < 0) {
+				cout << "Error: Cannot Add Negative Credit" << endl;
+				return false;
+			}
+			else if (val > 1000.00) {
+				cout << "Error: Cannot Add More Than 1000.00 Credit" << endl;
+				return false;
+			}
+			return true;
+		});
+
+		//creates the transaction line and sends it to writer
+		string transaction;
+		transaction += "06 ";
+		transaction += userName;
+		transaction += " ";
+		transaction += "AA";
+		transaction += " ";
+		transaction += creditAmount;
+		transactionFileWriter::add(transaction);
+		transactionFileWriter::writeOut();
+
+		return;
+	}
+
+
+	//Full standard user path
+	if ((userObject->getUserType() & (user::FULL_STANDARD)) != userObject->getUserType()) {
+		string creditAmount = getMonetaryInputAsString("Enter Amount To Add To Accound: ", [](string input) {
+			double val = stod(input);
+			if (val < 0) {
+				cout << "Error: Cannot add negative credit" << endl;
+				return false;
+			}
+			else if (val > 1000.00) {
+				cout << "Error: Maximum Amount To Add Is 1000.00" << endl;
+				return false;
+			}
+			return true;
+		});
+
+
+		//creates the transaction line and sends it to the writer
+		string transaction;
+		transaction += "06 ";
+		transaction += userObject->getUsername();
+		transaction += " ";
+		transaction += "FS";
+		transaction += " ";
+		transaction += creditAmount;
+		transactionFileWriter::add(transaction);
+		transactionFileWriter::writeOut();
+		return;
+	}
+
+	return;
 }
 
 void session::refund() {
-
+	// privileged transaction done by admins only
+	if ((userObject->getUserType() & (user::ADMIN)) != userObject->getUserType()) {
+		cout << "Error: You Do Not Have Privileges To Perform This Transaction" << endl;
+		return;
+	}
+	user* buyerObject;
+	user* sellerObject;
+	//buyer exists
+	String buyerUsername = = getInputWithSpaces("Enter Buyer Username: ", "Error: Invalid Username", 15);
+	vector<string> currentUserAccounts = FileReader::getCurrentUserAccounts();
+	for (int i = 0; i < currentUserAccounts.size() - 1; i++) {
+		string& line = currentUserAccounts[i];
+		if (line.substr(0, 15).compare(buyerUsername) == 0) {
+			buyerObject = new user(line.substr(0, 15), line.substr(16, 2), line.substr(19, 9));
+		}
+	}
+	//seller exists
+	String sellerUsername = = getInputWithSpaces("Enter Seller Username: ", "Error: Invalid Username", 15);
+	vector<string> currentUserAccounts = FileReader::getCurrentUserAccounts();
+	for (int i = 0; i < currentUserAccounts.size() - 1; i++) {
+		string& line = currentUserAccounts[i];
+		if (line.substr(0, 15).compare(sellerUsername) == 0) {
+			sellerObject = new user(line.substr(0, 15), line.substr(16, 2), line.substr(19, 9));
+		}
+	}
+	// checks correct bid amount
+	// refund doesn't have a limit
+	string refund = getMonetaryInputAsString("Enter Minimum Bid: ", [](string input) {
+		double val = stod(input);
+		if (val < 0) {
+			cout << "Error: Minimum Refund Cannot Be Negative" << endl;
+			return false;
+		}
+		else if (val >= (sellerObject->getCredit())) {
+			cout << "Error: Seller's Credit is too low for this refund" << endl;
+		}
+		return true;
+	});
+	//send to transaction
+	string transaction;
+	transaction += "05 ";
+	transaction += buyerObject->getUsername();
+	transaction += " ";
+	transaction += sellerObject->getUsername();
+	transaction += " ";
+	transaction += pad(refund, 9, '0', 'r');
+	transactionFileWriter::add(transaction);
 }
 
 void session::deleteUser() {
@@ -230,10 +344,8 @@ string session::pad(string data, int size, char padding, char side) {
 /*
 reads the userAccounts file and finds the user details with the
 given account name
-
 if name is found in userAccounts file, instantiates userObject
 and returns a new session
-
 if name is not found returns null
 */
 session* session::login() {
@@ -288,3 +400,15 @@ void session::sessionLoop() {
 session::session(user* userObject) {
 	this->userObject = userObject;
 }
+© 2020 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Help
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
