@@ -14,7 +14,8 @@ private:
 	void refund();
 	void deleteUser();
 	static std::string getInputWithSpaces(std::string prompt, std::string errorMsg, int maxLength);
-	static std::string getMonetaryInputAsString(std::string prompt, bool(*constraintF)(std::string));
+	template <typename Callable>
+	static std::string getMonetaryInputAsString(std::string prompt, Callable constraintF);
 	static double getMonetaryInput(std::string prompt, bool(*constraintF)(std::string));
 	static std::string pad(std::string data, int size, char padding, char side);
 

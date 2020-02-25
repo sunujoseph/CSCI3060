@@ -73,7 +73,7 @@ void session::advertise() {
 void session::bid() {
 	// bid item
 	// check user types
-	if ((userObject->getUserType() & (user::ADMIN | user::FULL_STANDARD) != userObject->getUserType()) {
+	if ((userObject->getUserType() & (user::ADMIN | user::FULL_STANDARD)) != userObject->getUserType()) {
 		cout << "Error: You Do Not Have Privileges To Perform This Transaction" << endl;
 		return;
 	}
@@ -87,7 +87,7 @@ void session::bid() {
 				}
 		}
 	double preprice = 200.00; // temp value, need to get item price.
-	string minBid = getMonetaryInputAsString("Enter Minimum Bid: ", [](string input) {
+	string minBid = getMonetaryInputAsString("Enter Minimum Bid: ", [preprice](string input) {
 		double val = stod(input);
 		if (val < 0) {
 			cout << "Error: Minimum Bid Cannot Be Negative" << endl;
@@ -166,7 +166,7 @@ void session::addCredit() {
 
 	//path for if user is admin type is different than if user is full standard
 	//admin path first
-	if ((userObject->getUserType() & (user::ADMIN)) != userObject->getUserType()) {
+	if ((userObject->getUserType() & (user::ADMIN)) == userObject->getUserType()) {
 		string userName = getInputWithSpaces("Enter User Name To Add Credit To: ", "Error: Invalid User Name", 15);
 		string creditAmount = getMonetaryInputAsString("Enter Amount To Add: ", [](string input) {
 			double val = stod(input);
@@ -197,7 +197,7 @@ void session::addCredit() {
 
 
 	//Full standard user path
-	if ((userObject->getUserType() & (user::FULL_STANDARD)) != userObject->getUserType()) {
+	if ((userObject->getUserType() & (user::FULL_STANDARD)) == userObject->getUserType()) {
 		string creditAmount = getMonetaryInputAsString("Enter Amount To Add To Accound: ", [](string input) {
 			double val = stod(input);
 			if (val < 0) {
@@ -237,7 +237,7 @@ void session::refund() {
 	user* buyerObject;
 	user* sellerObject;
 	//buyer exists
-	String buyerUsername = = getInputWithSpaces("Enter Buyer Username: ", "Error: Invalid Username", 15);
+	string buyerUsername = getInputWithSpaces("Enter Buyer Username: ", "Error: Invalid Username", 15);
 	vector<string> currentUserAccounts = FileReader::getCurrentUserAccounts();
 	for (int i = 0; i < currentUserAccounts.size() - 1; i++) {
 		string& line = currentUserAccounts[i];
@@ -246,7 +246,7 @@ void session::refund() {
 		}
 	}
 	//seller exists
-	String sellerUsername = = getInputWithSpaces("Enter Seller Username: ", "Error: Invalid Username", 15);
+	string sellerUsername = getInputWithSpaces("Enter Seller Username: ", "Error: Invalid Username", 15);
 	vector<string> currentUserAccounts = FileReader::getCurrentUserAccounts();
 	for (int i = 0; i < currentUserAccounts.size() - 1; i++) {
 		string& line = currentUserAccounts[i];
@@ -256,7 +256,10 @@ void session::refund() {
 	}
 	// checks correct bid amount
 	// refund doesn't have a limit
-	string refund = getMonetaryInputAsString("Enter Minimum Bid: ", [](string input) {
+	auto abc = [sellerUsername](string input) {
+		return false;
+	};
+	string refund = getMonetaryInputAsString("Enter Minimum Bid: ", [sellerObject](string input) {
 		double val = stod(input);
 		if (val < 0) {
 			cout << "Error: Minimum Refund Cannot Be Negative" << endl;
@@ -287,7 +290,7 @@ void session::deleteUser() {
 	}
 
 	//gets user to be deleted
-	String deletedUser = getInputWithSpaces("Enter Username of User to Delete: ", "Error: Invalid Username", 15);
+	string deletedUser = getInputWithSpaces("Enter Username of User to Delete: ", "Error: Invalid Username", 15);
 
 
 	//send to transaction
@@ -339,7 +342,8 @@ string session::getInputWithSpaces(string prompt, string errorMsg, int maxLength
 	return retInput;
 }
 
-string session::getMonetaryInputAsString(string prompt, bool (*constraintF)(string)) {
+template <typename Callable>
+string session::getMonetaryInputAsString(string prompt, Callable constraintF) {
 	string input;
 	bool validInput = false;
 	while (!validInput) {
