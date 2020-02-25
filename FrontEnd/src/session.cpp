@@ -428,22 +428,22 @@ void session::sessionLoop() {
 			break;
 		}
 		else if (command.compare("advertise") == 0) {
-
+			advertise();
 		}
 		else if (command.compare("bid") == 0) {
-
+			bid();
 		}
 		else if (command.compare("create") == 0) {
-
+			create();
 		}
 		else if (command.compare("addcredit") == 0) {
-
+			addCredit();
 		}
 		else if (command.compare("refund") == 0) {
-
+			refund();
 		}
 		else if (command.compare("delete") == 0) {
-
+			deleteUser();
 		}
 		else {
 			cout << "Error: Invalid Command" << endl;
