@@ -234,8 +234,8 @@ void session::refund() {
 		cout << "Error: You Do Not Have Privileges To Perform This Transaction" << endl;
 		return;
 	}
-	user* buyerObject;
-	user* sellerObject;
+	user* buyerObject = NULL;
+	user* sellerObject = NULL;
 	//buyer exists
 	string buyerUsername = getInputWithSpaces("Enter Buyer Username: ", "Error: Invalid Username", 15);
 	vector<string> currentUserAccounts = FileReader::getCurrentUserAccounts();
@@ -247,7 +247,7 @@ void session::refund() {
 	}
 	//seller exists
 	string sellerUsername = getInputWithSpaces("Enter Seller Username: ", "Error: Invalid Username", 15);
-	vector<string> currentUserAccounts = FileReader::getCurrentUserAccounts();
+	currentUserAccounts = FileReader::getCurrentUserAccounts();
 	for (int i = 0; i < currentUserAccounts.size() - 1; i++) {
 		string& line = currentUserAccounts[i];
 		if (line.substr(0, 15).compare(sellerUsername) == 0) {
