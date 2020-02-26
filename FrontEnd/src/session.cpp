@@ -119,6 +119,7 @@ void session::create() {
 		break;
 	}
 
+	cout << "Enter Type For New User: ";
 	string newUserType;
 	while (true) {
 		cin >> newUserType;
@@ -329,7 +330,7 @@ string session::getInputWithSpaces(string prompt, string errorMsg, int maxLength
 	for (int i = 0; i < input.length(); i++) {
 		combinedInput[i] = inputTemp[i];
 	}
-	for (int i = 0; i < cin.gcount() - 2; i++) {
+	for (int i = 0; i < cin.gcount() - 1; i++) {
 		combinedInput[input.length() + i] = temp[i];
 	}
 	for (int i = input.length() + cin.gcount() - 1; i < maxLength + 1; i++) {
