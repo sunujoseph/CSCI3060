@@ -8,15 +8,17 @@ class transactionFileWriter {
 private:
 	static std::vector<std::string> dailyTransactionFile;
 	static std::mutex m;
-	static std::mutex midnightM;
 	static std::condition_variable cv;
 	static std::condition_variable midnightCV;
-	static std::unique_lock<std::mutex> midnightLock;
 	static std::unique_lock<std::mutex> lk;
 	static std::string filePath;
+	static bool shutdownF;
+	static std::mutex shutdownM;
 
 public:
-	static void run(std::string path);
+	static void run();
 	static void writeOut();
 	static void add(std::string transaction);
+	static void shutdown();
+	static void setPath(std::string path);
 };

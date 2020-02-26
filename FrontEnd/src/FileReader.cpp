@@ -11,7 +11,6 @@ using namespace std;
 template <typename T>
 T& vecRef<T>::addBack() { //increases the size of the vector by 1, and returns a reference to the last element
 	this->resize(this->size() + 1);
-	vector<int> abc;
 	return this->back();
 }
 

@@ -5,6 +5,7 @@
 #include "transactionFileWriter.h"
 #include "FileReader.h"
 #include <direct.h>
+#include <mutex>
 
 using namespace std;
 
@@ -28,9 +29,10 @@ int main() {
 		currentPath[i] = -52;
 	}
 	string filePath(currentPath);
-
+	
+	transactionFileWriter::setPath(filePath);
 	thread fileReaderThread(FileReader::run, filePath);
-	thread fileWriterThread(transactionFileWriter::run, filePath);
+	thread fileWriterThread(transactionFileWriter::run);
 
 	string command;
 	cin >> command;
@@ -45,5 +47,9 @@ int main() {
 	if (newSession != NULL) {
 		delete newSession;
 	}
+
+	transactionFileWriter::shutdown();
+	fileReaderThread.join();
+	fileWriterThread.join();
 	return 0;
 }

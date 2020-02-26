@@ -391,7 +391,6 @@ string session::pad(string data, int size, char padding, char side) {
 	paddedData[size] = '\0';
 	string retData(paddedData);
 	delete[] paddedData;
-	delete[] dataCStr;
 	return retData;
 }
 
