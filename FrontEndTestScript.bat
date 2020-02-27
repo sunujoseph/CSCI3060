@@ -1,5 +1,5 @@
 @echo off
 SETLOCAL
 Dir stdout > test.txt
-cd \FrontEnd\FrontEnd
+cd \FrontEnd
 FrontEnd.exe
