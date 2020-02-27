@@ -313,6 +313,15 @@ string session::getInputWithSpaces(string prompt, string errorMsg, int maxLength
 	bool validInput = false;
 	while (!validInput) {
 		cout << prompt;
+#if(_DEBUG)
+		//eofbit should never be set when a user is using the program, but 
+		//since the tests send a file through cin, they set the eofbit.
+		//So this makes it so that if they set it, the program exits
+		if (cin.eof()) {
+			delete[] temp;
+			exit(-1);
+		}
+#endif
 		//using ">>" blocks until user enters new line character, but only retrieves input
 		//up to first whitespace character
 		cin >> input;

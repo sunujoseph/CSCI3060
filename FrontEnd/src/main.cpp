@@ -16,7 +16,7 @@ int main() {
 	_getcwd(currentPath, sizeof(currentPath));
 
 #if(_DEBUG)
-	int slashes = 2;
+	int slashes = 0;
 	for (int i = FILENAME_MAX; i >= 0; i--) {
 		if (currentPath[i] == '\\') {
 			if (slashes == 0) {
@@ -32,7 +32,6 @@ int main() {
 	}
 #endif
 	string filePath(currentPath);
-	cout << filePath << endl;
 	transactionFileWriter::setPath(filePath);
 	thread fileReaderThread(FileReader::run, filePath);
 	thread fileWriterThread(transactionFileWriter::run);
