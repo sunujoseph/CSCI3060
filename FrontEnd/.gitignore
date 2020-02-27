@@ -1,5 +1,5 @@
 FrontEnd
-.iobj
-.ipdb
-.pdb
-.ilk
+*.iobj
+*.ipdb
+*.pdb
+*.ilk
