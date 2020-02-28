@@ -16,7 +16,7 @@ private:
 	static vecRef<std::string> availableItems;
 	static std::mutex m;
 	static std::condition_variable cv;
-	static std::unique_lock<std::mutex> lk;
+	//static std::unique_lock<std::mutex> lk;
 	static bool initialized;
 
 public:

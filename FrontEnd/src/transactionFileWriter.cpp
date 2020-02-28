@@ -12,7 +12,7 @@ using namespace std;
 
 vector<string> transactionFileWriter::dailyTransactionFile;
 mutex transactionFileWriter::m;
-condition_variable transactionFileWriter::cv;
+//condition_variable transactionFileWriter::cv;
 condition_variable transactionFileWriter::midnightCV;
 unique_lock<mutex> transactionFileWriter::lk(m, defer_lock);
 string transactionFileWriter::filePath;
@@ -36,15 +36,12 @@ void transactionFileWriter::run() {
 		midnightTime.tm_min = 0;
 		midnightTime.tm_hour = 0;
 		midnightTime.tm_mday++; //mktime will adjust time accordingly if tm_mday is out of range
-		midnightCV.wait_until(shutdownLock, chrono::system_clock::from_time_t(mktime(&midnightTime)));
-		if (shutdownF) {
+		if (midnightCV.wait_until(shutdownLock, chrono::system_clock::from_time_t(mktime(&midnightTime)), [] {return shutdownF;})) {
 			shutdownLock.unlock();
 			return;
 		}
 		//at this point, it is midnight, so obtain the lock and write out the dailyTransactionFile
-		if (!lk.try_lock()) {
-			cv.wait(lk);
-		}
+		lk.lock();
 		string fileName(filePath + to_string(fileNameTime.tm_mon) + "-" + to_string(fileNameTime.tm_mday) + "-" +
 			to_string(fileNameTime.tm_year) + ".txt");
 		ofstream dTFWriter(fileName);
@@ -52,7 +49,6 @@ void transactionFileWriter::run() {
 		copy(dailyTransactionFile.begin(), dailyTransactionFile.end(), out_it);
 		dTFWriter.close();
 		lk.unlock();
-		cv.notify_all();
 	}
 }
 
@@ -62,9 +58,7 @@ void transactionFileWriter::writeOut() {
 	time_t curTime = time(nullptr); //curTime in seconds
 	localtime_s(&fileNameTime, &curTime);
 
-	if (!lk.try_lock()) {
-		cv.wait(lk);
-	}
+	lk.lock();
 	string fileName(filePath + to_string(fileNameTime.tm_mon) + "-" + to_string(fileNameTime.tm_mday) + "-" +
 		to_string(fileNameTime.tm_year) + ".txt");
 	ofstream dTFWriter(fileName);
@@ -72,17 +66,13 @@ void transactionFileWriter::writeOut() {
 	copy(dailyTransactionFile.begin(), dailyTransactionFile.end(), out_it);
 	dTFWriter.close();
 	lk.unlock();
-	cv.notify_all();
 }
 
 //add transaction to the daily transaction file
 void transactionFileWriter::add(string transaction) {
-	if (!lk.try_lock()) {
-		cv.wait(lk);
-	}
+	lk.lock();
 	dailyTransactionFile.push_back(transaction);
 	lk.unlock();
-	cv.notify_all();
 }
 
 void transactionFileWriter::shutdown() {

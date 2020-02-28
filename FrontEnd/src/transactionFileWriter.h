@@ -8,7 +8,7 @@ class transactionFileWriter {
 private:
 	static std::vector<std::string> dailyTransactionFile;
 	static std::mutex m;
-	static std::condition_variable cv;
+	//static std::condition_variable cv;
 	static std::condition_variable midnightCV;
 	static std::unique_lock<std::mutex> lk;
 	static std::string filePath;

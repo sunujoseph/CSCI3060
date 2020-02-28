@@ -4,6 +4,14 @@
 #include "FileReader.h"
 #include "transactionFileWriter.h"
 #include "session.h"
+#if(_DEBUG)
+#include "main.h"
+#include <csetjmp>
+//eofbit should never be set when a user is using the program, but 
+//since the tests send a file through cin, they set the eofbit.
+//So this makes it so that if they set it, the program exits
+#define checkTestEnd if (cin.eof()) { cout << "exiting" << endl; longjmp(testExit, 1); }
+#endif
 
 using namespace std;
 
@@ -44,6 +52,9 @@ void session::advertise() {
 	bool validPeriod = false;
 	while (!validPeriod) {
 		cout << "Enter Number Of Days Until Auction Ends: ";
+#if(_DEBUG)
+		checkTestEnd
+#endif
 		cin >> period;
 		if (cin.peek() != '\n') {
 			cout << "Error: Invalid Input" << endl;
@@ -78,14 +89,14 @@ void session::bid() {
 		return;
 	}
 	string itemName = getInputWithSpaces("Enter Item Name: ", "Error: Invalid Name", 25);
-		vector<string> currentAvailableItems = FileReader::getAvailableItems();
-		for (int i = 0; i < currentAvailableItems.size() - 1; i++) {
-			string& line = currentAvailableItems[i];
-				if (line.substr(0, 26).compare(itemName) == 0) {
-					//got item name
-					//then get item price
-				}
-		}
+	vector<string> currentAvailableItems = FileReader::getAvailableItems();
+	for (int i = 0; i < currentAvailableItems.size() - 1; i++) {
+		string& line = currentAvailableItems[i];
+			if (line.substr(0, 26).compare(itemName) == 0) {
+				//got item name
+				//then get item price
+			}
+	}
 	double preprice = 200.00; // temp value, need to get item price.
 	string minBid = getMonetaryInputAsString("Enter Minimum Bid: ", [preprice](string input) {
 		double val = stod(input);
@@ -122,6 +133,9 @@ void session::create() {
 	cout << "Enter Type For New User: ";
 	string newUserType;
 	while (true) {
+#if(_DEBUG)
+		checkTestEnd
+#endif
 		cin >> newUserType;
 		if (cin.peek() != '\n') {
 			cout << "Error: Invalid Input" << endl;
@@ -314,19 +328,24 @@ string session::getInputWithSpaces(string prompt, string errorMsg, int maxLength
 	while (!validInput) {
 		cout << prompt;
 #if(_DEBUG)
+		/*
 		//eofbit should never be set when a user is using the program, but 
 		//since the tests send a file through cin, they set the eofbit.
 		//So this makes it so that if they set it, the program exits
 		if (cin.eof()) {
-			delete[] temp;
-			exit(-1);
+			cout << "exiting" << endl;
+			longjmp(testExit, 1);
 		}
+		*/
+		checkTestEnd
 #endif
 		//using ">>" blocks until user enters new line character, but only retrieves input
 		//up to first whitespace character
 		cin >> input;
+		cout << "input: " << input << "\tlength: " << input.length() << endl;
 		//get remaining input contained in cin
 		cin.readsome(temp, maxLength + 1 - input.length());
+		cout << "cin.gcount: " << cin.gcount() << endl;
 		if ((cin.gcount() + input.length() > maxLength + 1) || (cin.gcount() + input.length() < 2)) {
 			cout << errorMsg << endl;
 		}
@@ -358,6 +377,9 @@ string session::getMonetaryInputAsString(string prompt, Callable constraintF) {
 	bool validInput = false;
 	while (!validInput) {
 		cout << prompt;
+#if(_DEBUG)
+		checkTestEnd
+#endif
 		cin >> input;
 		//check if any remaining input in cin
 		if (cin.peek() != '\n') {
@@ -413,8 +435,9 @@ if name is not found returns null
 */
 session* session::login() {
 	string username = getInputWithSpaces("Enter Username: ", "Error: Invalid Username", 15);
-
+	cout << "username: " << username << endl;
 	vector<string> currentUserAccounts = FileReader::getCurrentUserAccounts();
+	
 	for (int i = 0; i < currentUserAccounts.size() - 1; i++) {
 		string& line = currentUserAccounts[i];
 		if (line.substr(0, 15).compare(username) == 0) {
@@ -427,6 +450,9 @@ session* session::login() {
 void session::sessionLoop() {
 	string command;
 	while (true) {
+#if(_DEBUG)
+		checkTestEnd
+#endif
 		cin >> command;
 
 		if (command.compare("login") == 0) {
