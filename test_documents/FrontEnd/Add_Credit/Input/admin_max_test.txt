@@ -1,0 +1,13 @@
+<<<<<<< HEAD
+login
+admin1
+addcredit
+userBS
+1001
+=======
+login 
+admin1 
+addcredit 
+user1 
+1001 
+>>>>>>> 045ab3a228dd105628dbfe1187d65871381e1205
