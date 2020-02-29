@@ -21,11 +21,10 @@ condition_variable FileReader::cv;
 //unique_lock<mutex> FileReader::lk(m, defer_lock);
 bool FileReader::initialized = false;
 
-void FileReader::run(string path) {
+void FileReader::run(vector<string> paths) {
 	unique_lock<mutex> lk = unique_lock<mutex>(m);
 	//lk.lock();
-
-	ifstream userAccountsReader(path + "current_user_accounts.txt");
+	ifstream userAccountsReader(paths[0]);
 	//istream_iterator<string> startCUA(userAccountsReader), endCUA;
 	//currentUserAccounts = vector<string>(startCUA, endCUA);
 	while (userAccountsReader.peek() != EOF) {
@@ -33,7 +32,7 @@ void FileReader::run(string path) {
 	}
 	userAccountsReader.close();
 
-	ifstream availableItemsReader(path + "available items.txt");
+	ifstream availableItemsReader(paths[1]);
 	//istream_iterator<string> startAI(availableItemsReader), endAI;
 	//availableItems = vector<string>(startAI, endAI);
 	while (!availableItemsReader.eof()) {

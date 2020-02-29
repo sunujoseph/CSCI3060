@@ -15,30 +15,38 @@ std::jmp_buf testExit;
 
 using namespace std;
 
-int main() {
+int main(int argc, char** argv) {
+	
+	/*
+#if(_DEBUG)
 	//get locations of files
 	char currentPath[FILENAME_MAX];
 	_getcwd(currentPath, sizeof(currentPath));
-
-#if(_DEBUG)
 	int slashes = 0;
+	int pathLen;
 	for (int i = FILENAME_MAX; i >= 0; i--) {
 		if (currentPath[i] == '\\') {
 			if (slashes == 0) {
 				const char testPath[] = "test_documents\\FrontEnd\\";
-				for (int j = 0; j < sizeof(testPath) / sizeof(char); j++) {
+				int j;
+				for (j = 0; j < sizeof(testPath) / sizeof(char); j++) {
 					currentPath[i + j + 1] = testPath[j];
+
 				}
+				pathLen = i + j;
 				break;
 			}
 			slashes--;
 		}
 		currentPath[i] = -52;
 	}
-#endif
 	string filePath(currentPath);
 	transactionFileWriter::setPath(filePath);
-	thread fileReaderThread(FileReader::run, filePath);
+
+#else
+	*/
+	transactionFileWriter::setPath(argv[3]);
+	thread fileReaderThread(FileReader::run, vector<string>{ argv[1], argv[2] });
 	thread fileWriterThread(transactionFileWriter::run);
 
 	string command;

@@ -20,7 +20,7 @@ private:
 	static bool initialized;
 
 public:
-	static void run(std::string path);
+	static void run(std::vector<std::string> paths);
 
 	static std::vector<std::string> getCurrentUserAccounts();
 
