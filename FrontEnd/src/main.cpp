@@ -50,23 +50,25 @@ int main(int argc, char** argv) {
 	thread fileWriterThread(transactionFileWriter::run);
 
 	string command;
-	cin >> command;
-	while (command.compare("login") != 0) {
-		cout << "Error: Not Logged In" << endl;
-		cin >> command;
-	}
-	session* newSession;
 #if(_DEBUG)
 	if (_setjmp(testExit) == 1) {
 		goto testExitL;
 	}
 #endif
-	if ((newSession = session::login()) != NULL) {
-		//cout << "login successful" << endl;
-		newSession->sessionLoop();
-	}
-	if (newSession != NULL) {
-		delete newSession;
+	while (true) {
+		cin >> command;
+		while (command.compare("login") != 0) {
+			cout << "Error: Not Logged In" << endl;
+			cin >> command;
+		}
+		session* newSession;
+		if ((newSession = session::login()) != NULL) {
+			//cout << "login successful" << endl;
+			newSession->sessionLoop();
+		}
+		if (newSession != NULL) {
+			delete newSession;
+		}
 	}
 #if(_DEBUG)
 testExitL:

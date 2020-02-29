@@ -1,5 +1,5 @@
 login
-user1
+userFS
 addcredit
 100
 logout

@@ -1,3 +1,2 @@
-Enter Username:
-Enter amount of credit to add to your account:
-logged out.
+Enter Username: 
+Enter Amount To Add To Account: 

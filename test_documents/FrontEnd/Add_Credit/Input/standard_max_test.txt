@@ -1,5 +1,4 @@
 login
-username
+userFS
 addcredit
 1001
-logout

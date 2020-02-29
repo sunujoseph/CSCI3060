@@ -1,6 +1,6 @@
 login
 admin1
 addcredit
-user1
+userBS
 100
 logout
