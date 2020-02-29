@@ -1,12 +1,12 @@
-login
-username
-addcredit
-1000000
-logout
+login 
+username 
+addcredit 
+1000000 
+logout 
 
-login
-AAusername
-addcredit
-username
-1000000
-logout
+login 
+AAusername 
+addcredit 
+username 
+1000000 
+logout 

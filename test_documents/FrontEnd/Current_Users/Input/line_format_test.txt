@@ -1,4 +1,4 @@
-login
-username
-readCUA
-logout
+login 
+username 
+readCUA 
+logout 

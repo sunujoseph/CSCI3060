@@ -1,8 +1,8 @@
-login
-john123smith
-advertise
-444444
-A toy car.
-20
-50
-logout
+login 
+john123smith 
+advertise 
+444444 
+A toy car. 
+20 
+50 
+logout 

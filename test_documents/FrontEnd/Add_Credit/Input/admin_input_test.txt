@@ -1,6 +1,6 @@
-login
-admin1
-addcredit
-user1
-100
-logout
+login 
+admin1 
+addcredit 
+user1 
+100 
+logout 

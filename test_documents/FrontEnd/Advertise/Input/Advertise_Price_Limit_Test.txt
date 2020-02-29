@@ -1,8 +1,8 @@
-login
-john123smith
-advertise
-Hotwheels Speedwagon
-A toy car.
-20000000
-67
-logout
+login 
+john123smith 
+advertise 
+Hotwheels Speedwagon 
+A toy car. 
+20000000 
+67 
+logout 

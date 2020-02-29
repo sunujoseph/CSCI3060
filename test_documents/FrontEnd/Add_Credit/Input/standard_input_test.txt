@@ -1,5 +1,5 @@
-login
-username
-addcredit
-100
-logout
+login 
+username 
+addcredit 
+100 
+logout 

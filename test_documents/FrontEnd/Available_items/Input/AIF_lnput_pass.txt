@@ -1,4 +1,4 @@
-login
-john123smith
-readDTF 2020/01/31
-logout
+login 
+john123smith 
+readDTF 2020/01/31 
+logout 

@@ -1,8 +1,8 @@
-login
-john123smith
-advertise
-qwertyuioplkjhgfdsazx bnmkhdeqwqvgerwbvhrswrssg
-A toy car.
-20
-50
-logout
+login 
+john123smith 
+advertise 
+qwertyuioplkjhgfdsazx bnmkhdeqwqvgerwbvhrswrssg 
+A toy car. 
+20 
+50 
+logout 

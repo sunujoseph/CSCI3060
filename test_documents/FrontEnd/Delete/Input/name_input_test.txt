@@ -1,5 +1,5 @@
-login
-AAusername
-delete
-username
-log out
+login 
+AAusername 
+delete 
+username 
+log out 
