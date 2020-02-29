@@ -1,3 +1,0 @@
-Enter Username:
-Enter User Name To Add Credit To:
-Enter Amount To Add:
