@@ -1,4 +1,5 @@
-login 
-admin1 
-addcredit 
-nonusername 
+login
+admin1
+addcredit
+nonusername
+logout
