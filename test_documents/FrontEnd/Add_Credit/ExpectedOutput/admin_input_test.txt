@@ -1,3 +1,7 @@
 Enter Username: 
 Enter User Name To Add Credit To: 
+<<<<<<< HEAD
 Enter Amount To Add: 
+=======
+Enter Amount To Add: 
+>>>>>>> 9c2a426d2fb208ea0ac3da5fb156edc1d3a04f44

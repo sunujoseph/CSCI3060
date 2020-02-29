@@ -1,4 +1,9 @@
 login
+userFS
+addcredit
+100
+logout
+login
 username
 addcredit
 100

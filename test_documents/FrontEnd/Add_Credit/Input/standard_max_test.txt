@@ -1,4 +1,8 @@
 login
+userFS
+addcredit
+1001
+login
 username
 addcredit
 1001

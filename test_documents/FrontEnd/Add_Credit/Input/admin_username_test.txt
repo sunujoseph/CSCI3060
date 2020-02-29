@@ -1,4 +1,9 @@
 login
 admin1
 addcredit
+<<<<<<< HEAD
 nonusername
+=======
+nonusername
+logout
+>>>>>>> 9c2a426d2fb208ea0ac3da5fb156edc1d3a04f44
