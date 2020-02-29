@@ -1,7 +1,7 @@
-login 
-AAusername 
-delete 
-username 
-bid 
-username 
-logout 
+login
+AAusername
+delete
+username
+bid
+username
+logout

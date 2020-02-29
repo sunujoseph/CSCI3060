@@ -1,4 +1,4 @@
-Enter Username:
+Enter Username: 
 Error: Privileged transactions are restricted to admins only
 Error: Privileged transactions are restricted to admins only
 Error: Privileged transactions are restricted to admins only

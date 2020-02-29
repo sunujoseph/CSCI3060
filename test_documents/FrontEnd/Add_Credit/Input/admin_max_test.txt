@@ -1,5 +1,5 @@
-login 
-admin1 
-addcredit 
-user1 
-1001 
+login
+admin1
+addcredit
+user1
+1001

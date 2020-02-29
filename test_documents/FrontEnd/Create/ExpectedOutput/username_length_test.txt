@@ -1,2 +1,2 @@
-Enter Username For New User:
+Enter Username For New User: 
 Error: Max name length is 15 characters

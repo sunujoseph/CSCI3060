@@ -1,7 +1,7 @@
-login 
-AAusername 
-bid 
-sellername 
-itemname 
-104 
-logout 
+login
+AAusername
+bid
+sellername
+itemname
+104
+logout

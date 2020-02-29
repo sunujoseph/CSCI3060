@@ -1,7 +1,7 @@
-Please log in to the system:
-Please enter your username:
-Enter command:
-Enter Item Name:
-Enter command:
+Please log in to the system: 
+Please enter your username: 
+Enter command: 
+Enter Item Name: 
+Enter command: 
 ERROR: Cannot list further auctions until the next session is completed.
 Goodbye!

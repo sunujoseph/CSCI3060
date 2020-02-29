@@ -1,4 +1,4 @@
-login 
-username 
-readDTF 
-logout 
+login
+username
+readDTF
+logout

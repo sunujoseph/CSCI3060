@@ -1,7 +1,7 @@
-Please log in to the system:
-Please enter your username:
-Enter command:
-Enter Item Name:
-Enter buyer username:
+Please log in to the system: 
+Please enter your username: 
+Enter command: 
+Enter Item Name: 
+Enter buyer username: 
 ERROR: Buyer username not found on current user list. Enter valid buyer username.
 Goodbye!
