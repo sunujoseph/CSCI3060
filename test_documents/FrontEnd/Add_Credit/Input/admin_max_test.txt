@@ -9,3 +9,4 @@ admin1
 addcredit
 user1
 1001
+logout
