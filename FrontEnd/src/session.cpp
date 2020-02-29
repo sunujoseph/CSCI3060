@@ -10,7 +10,7 @@
 //eofbit should never be set when a user is using the program, but 
 //since the tests send a file through cin, they set the eofbit.
 //So this makes it so that if they set it, the program exits
-#define checkTestEnd if (cin.eof()) { cout << "exiting" << endl; longjmp(testExit, 1); }
+#define checkTestEnd if (cin.peek() == EOF) { longjmp(testExit, 1); }
 #endif
 
 using namespace std;
@@ -328,24 +328,13 @@ string session::getInputWithSpaces(string prompt, string errorMsg, int maxLength
 	while (!validInput) {
 		cout << prompt;
 #if(_DEBUG)
-		/*
-		//eofbit should never be set when a user is using the program, but 
-		//since the tests send a file through cin, they set the eofbit.
-		//So this makes it so that if they set it, the program exits
-		if (cin.eof()) {
-			cout << "exiting" << endl;
-			longjmp(testExit, 1);
-		}
-		*/
 		checkTestEnd
 #endif
 		//using ">>" blocks until user enters new line character, but only retrieves input
 		//up to first whitespace character
 		cin >> input;
-		cout << "input: " << input << "\tlength: " << input.length() << endl;
 		//get remaining input contained in cin
 		cin.readsome(temp, maxLength + 1 - input.length());
-		cout << "cin.gcount: " << cin.gcount() << endl;
 		if ((cin.gcount() + input.length() > maxLength + 1) || (cin.gcount() + input.length() < 2)) {
 			cout << errorMsg << endl;
 		}
@@ -435,7 +424,7 @@ if name is not found returns null
 */
 session* session::login() {
 	string username = getInputWithSpaces("Enter Username: ", "Error: Invalid Username", 15);
-	cout << "username: " << username << endl;
+	
 	vector<string> currentUserAccounts = FileReader::getCurrentUserAccounts();
 	
 	for (int i = 0; i < currentUserAccounts.size() - 1; i++) {

@@ -48,6 +48,11 @@ int main() {
 		cin >> command;
 	}
 	session* newSession;
+#if(_DEBUG)
+	if (_setjmp(testExit) == 1) {
+		goto testExitL;
+	}
+#endif
 	if ((newSession = session::login()) != NULL) {
 		//cout << "login successful" << endl;
 		newSession->sessionLoop();
@@ -56,18 +61,10 @@ int main() {
 		delete newSession;
 	}
 #if(_DEBUG)
-	if (_setjmp(testExit)) {
-		cout << "test exited" << endl;
-	}
-	else {
-		cout << "test returned false" << endl;
-	}
+testExitL:
 #endif
 	transactionFileWriter::shutdown();
-	cout << "shutdown initiated" << endl;
 	fileReaderThread.join();
-	cout << "fileReaderThread joined" << endl;
 	fileWriterThread.join();
-	cout << "fileWriterThread joined" << endl;
 	return 0;
 }
