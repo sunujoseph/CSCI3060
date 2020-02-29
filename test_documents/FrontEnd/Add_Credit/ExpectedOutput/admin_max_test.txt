@@ -1,5 +1,5 @@
-Enter user name:
-Enter user name of user to add credit to:
-Enter amount of credit to add to user:
-Cannout add more than $1000.00 at a time.
-logged out
+Enter Username:
+Enter User Name To Add Credit To:
+Enter Amount To Add:
+Error: Cannot Add More Than 1000.00 Credit
+Enter Amount To Add:

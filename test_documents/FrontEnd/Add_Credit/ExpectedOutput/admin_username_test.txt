@@ -1,4 +1,3 @@
-Enter user name:
-Enter user name to add credit to:
+Enter Username:
+Enter User Name To Add Credit To:
 Cannot add credit to user than does not exist.
-Logged out.

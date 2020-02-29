@@ -1,4 +1,3 @@
-Enter user name:
-Enter user name to add credit to:
-Enter credit to give to user:
-logged out.
+Enter Username:
+Enter User Name To Add Credit To:
+Enter Amount To Add:

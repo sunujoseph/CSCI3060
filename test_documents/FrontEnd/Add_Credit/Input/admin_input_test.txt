@@ -1,6 +1,6 @@
 login
-AAusername
+admin1
 addcredit
-username
+user1
 100
 logout

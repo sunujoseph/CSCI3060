@@ -1,5 +1,4 @@
 login
-AAusername
+admin1
 addcredit
 nonusername
-logout
