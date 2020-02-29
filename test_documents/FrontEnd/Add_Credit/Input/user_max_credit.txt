@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 login
 userMaxCredit
 addcredit
@@ -10,3 +11,17 @@ addcredit
 userMaxCredit
 1000000
 logout
+=======
+login 
+username 
+addcredit 
+1000000 
+logout 
+
+login 
+AAusername 
+addcredit 
+username 
+1000000 
+logout 
+>>>>>>> 045ab3a228dd105628dbfe1187d65871381e1205

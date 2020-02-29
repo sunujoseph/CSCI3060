@@ -1,5 +1,13 @@
+<<<<<<< HEAD
 login
 userFS
 addcredit
 100
 logout
+=======
+login 
+user1 
+addcredit 
+100 
+logout 
+>>>>>>> 045ab3a228dd105628dbfe1187d65871381e1205

@@ -1,4 +1,12 @@
+<<<<<<< HEAD
 login
 userFS
 addcredit
 1001
+=======
+login 
+username 
+addcredit 
+1001 
+logout 
+>>>>>>> 045ab3a228dd105628dbfe1187d65871381e1205
