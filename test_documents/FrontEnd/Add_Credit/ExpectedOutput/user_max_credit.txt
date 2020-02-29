@@ -1,7 +1,6 @@
 Enter Username: 
 Enter Amount To Add To Account: 
 Cannot have more than $999,999 in your account.
-
 Enter Username: 
 Enter User Name To Add Credit To: 
 Enter Amount To Add: 
