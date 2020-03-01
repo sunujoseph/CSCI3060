@@ -1,13 +1,16 @@
-<<<<<<< HEAD
 login
 admin1
 addcredit
 userBS
 1001
+logout
+login
+admin1
+addcredit
+user1
+<<<<<<< HEAD
+1001
 =======
-login 
-admin1 
-addcredit 
-user1 
-1001 
->>>>>>> 045ab3a228dd105628dbfe1187d65871381e1205
+1001
+logout
+>>>>>>> 9c2a426d2fb208ea0ac3da5fb156edc1d3a04f44

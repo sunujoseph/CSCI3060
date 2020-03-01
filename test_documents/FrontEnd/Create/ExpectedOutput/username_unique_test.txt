@@ -1,2 +1,2 @@
-Enter Username For New User:
+Enter Username For New User: 
 Error: Username taken

@@ -4,7 +4,7 @@ bid
 sellername
 itemname
 104
-bid 
+bid
 sellername
 itemname
 106

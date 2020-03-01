@@ -1,6 +1,6 @@
-Please log in to the system:
-Please enter your username:
-Enter command:
+Please log in to the system: 
+Please enter your username: 
+Enter command: 
 ERROR: Unused numeric fields are not filled with 0s on Line:3,4
 ERROR: Unused spaces are not filled with _s on Line:2,3 
 Daily Transaction File of 2020/01/29
@@ -9,5 +9,5 @@ Golden_Necklace_____ken_adams56    _kevin_woo076___043_089.00
 Vintage_Vase______ _john123smith  __kevin_woo076___o12_257.38
 Red_Faux_Handbag____kevin_woo076____ken_adams56____oO2_009.99
 END__________________________________________________________
-Enter command:
+Enter command: 
 Logout Successful, Goodbye!

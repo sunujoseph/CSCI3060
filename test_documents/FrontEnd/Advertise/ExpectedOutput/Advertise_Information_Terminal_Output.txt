@@ -1,6 +1,3 @@
-Please log in to the system:
-Please enter your username:
-Enter command:
-Enter Item Name:
-ERROR: Enter a valid item name. 
-Goodbye!
+Enter Username: 
+Enter Item Name: 
+Error: Invalide Name 

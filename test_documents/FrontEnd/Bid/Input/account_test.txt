@@ -26,5 +26,3 @@ login
 SSuser
 bid
 logout
-
-

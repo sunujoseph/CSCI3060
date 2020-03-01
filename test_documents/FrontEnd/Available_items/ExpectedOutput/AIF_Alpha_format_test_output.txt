@@ -1,6 +1,6 @@
-Please log in to the system:
-Please enter your username:
-Enter command:
+Please log in to the system: 
+Please enter your username: 
+Enter command: 
 ERROR: Alphabetic fields are not left justified on Line:2
 ERROR: Unused spaces are not filled with _s on Line:1,3,4 
 Daily Transaction File of 2020/01/30
@@ -9,5 +9,5 @@ Tesla_Model_3_______kevin_woo076____john123smith___100_900.99
 vinTAGe vASE       _john123smith____kevin_woo076___012_257.38
 Red Faux Handbag____kevin_woo076____ken_adams5_____002_009.99
 END__________________________________________________________
-Enter command:
+Enter command: 
 Logout Successful, Goodbye!

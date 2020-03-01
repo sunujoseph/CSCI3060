@@ -1,5 +1,9 @@
-Enter Username:
-Enter User Name To Add Credit To:
-Enter Amount To Add:
+Enter Username: 
+Enter User Name To Add Credit To: 
+Enter Amount To Add: 
 Error: Cannot Add More Than 1000.00 Credit
-Enter Amount To Add:
+<<<<<<< HEAD
+Enter Amount To Add: 
+=======
+Enter Amount To Add: 
+>>>>>>> 9c2a426d2fb208ea0ac3da5fb156edc1d3a04f44

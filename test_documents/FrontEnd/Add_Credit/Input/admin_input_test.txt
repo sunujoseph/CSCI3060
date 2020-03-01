@@ -1,15 +1,12 @@
-<<<<<<< HEAD
 login
 admin1
 addcredit
 userBS
 100
 logout
-=======
-login 
-admin1 
-addcredit 
-user1 
-100 
-logout 
->>>>>>> 045ab3a228dd105628dbfe1187d65871381e1205
+login
+admin1
+addcredit
+user1
+100
+logout

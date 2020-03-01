@@ -1,2 +1,9 @@
+<<<<<<< HEAD
+logout
+Enter user name: 
+Enter amount of money to add to your account: 
+logged out.
+=======
 Enter Username: 
 Enter Amount To Add To Account: 
+>>>>>>> 9c2a426d2fb208ea0ac3da5fb156edc1d3a04f44
