@@ -5,5 +5,4 @@ Enter Item Name:
 Enter buyer username: 
 Enter seller username: 
 Enter amount of credit: 
-ERROR: Given Credit amount is invalid. Please enter the correct credit amount in dollars($). 
-Goodbye!
+Error: Minimum Refund Cannot Be Negative

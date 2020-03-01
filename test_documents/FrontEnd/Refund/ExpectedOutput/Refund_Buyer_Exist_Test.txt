@@ -3,5 +3,4 @@ Please enter your username:
 Enter command: 
 Enter Item Name: 
 Enter buyer username: 
-ERROR: Buyer username not found on current user list. Enter valid buyer username.
-Goodbye!
+Error: Invaild Username
