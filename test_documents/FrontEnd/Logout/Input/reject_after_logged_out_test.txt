@@ -1,3 +1,5 @@
+login
+admin1
 logout
 logout
 create
@@ -7,3 +9,5 @@ bid
 refund
 addcredit
 login
+admin1
+logout
