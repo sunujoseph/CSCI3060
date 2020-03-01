@@ -1,4 +1,3 @@
 Enter Username: 
 Enter a user name to delete the account of: 
 User: userBS, has been deleted.
-logged out
