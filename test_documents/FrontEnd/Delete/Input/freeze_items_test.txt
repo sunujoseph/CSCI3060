@@ -1,7 +1,7 @@
 login
-AAusername
+admin1
 delete
-username
+userBS
 bid
-username
+userBs
 logout
