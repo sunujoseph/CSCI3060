@@ -2,19 +2,15 @@ login
 admin1
 delete
 userBS
-logout
 
 login
 userFS
 delete
-logout
 
 login
 userBS
 delete
-logout
 
 login
 userSS
 delete
-logout
