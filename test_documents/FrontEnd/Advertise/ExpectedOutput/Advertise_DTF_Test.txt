@@ -1,4 +1,4 @@
 Enter Username: 
 Enter Item Name: 
 Enter Minimum Bid: 
-Enter Number Of Days until Auction Ends: 
+Enter Number Of Days Until Auction Ends: 

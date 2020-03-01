@@ -1,29 +1,20 @@
 Enter Username: 
-Enter Transaction: 
-Enter Seller Name: 
 Enter Item Name: 
-Current highest bid is: $10.00
-Enter Bid: 
-Bid accepted.
-User logged out.
+Enter Seller Username: 
+Current Highest Bid Is: 012.34
+Enter New Bid: 
 
 Enter Username: 
-Enter Transaction: 
-Enter Seller Name: 
 Enter Item Name: 
-Current highest bid is: $10.00
-Bid accepted.
-User logged out.
+Enter Seller Username: 
+Current Highest Bid Is: 134.00
+Enter New Bid: 
 
 Enter Username: 
-Enter Transaction: 
-Enter Seller Name: 
-Enter Item Name:  
-Current highest bid is: $10.00
-Bid accepted.
-User logged out.
+Enter Item Name: 
+Enter Seller Username: 
+Current Highest Bid Is: 100.00
+Enter New Bid: 
 
 Enter Username: 
-Enter Transaction: 
-Error, Seller only accounts may not bid on items.
-User logged out.
+Error: You Do Not Have Privileges To Perform This Transaction

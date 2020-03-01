@@ -1,6 +1,4 @@
-Please log in to the system: 
-Please enter your username: 
-Enter command: 
+Enter Username: 
 Enter Item Name: 
-ERROR: You've exceed the Character Limit! Name Character Limit is 25 characters. 
-Goodbye!
+Error: Invalid Name
+Enter Item Name: 

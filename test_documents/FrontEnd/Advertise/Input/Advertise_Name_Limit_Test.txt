@@ -1,8 +1,6 @@
 login
-john123smith
+userSS
 advertise
 qwertyuioplkjhgfdsazx bnmkhdeqwqvgerwbvhrswrssg
-A toy car.
 20
 50
-logout

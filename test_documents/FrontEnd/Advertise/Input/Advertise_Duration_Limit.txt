@@ -1,8 +1,6 @@
 login
-john123smith
+userSS
 advertise
-Sunjoy Ryman Desk with Hutch
-Office Desk
+New Item
 250
 400
-logout

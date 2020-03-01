@@ -1,8 +1,5 @@
 login
-john123smith
+userSS
 advertise
-Hotwheels Speedwagon
-A toy car.
+New Item
 99dollars
-67
-logout

@@ -1,8 +1,5 @@
-Please log in to the system: 
-Please enter your username: 
-Enter command: 
+Enter Username: 
 Enter Item Name: 
-Enter Item Description: 
-Enter Item Price: 
-ERROR: Enter valid starting price in dollars.
-Goodbye!
+Enter Minimum Bid: 
+Error: Invalid Input
+Enter Minimum Bid: 

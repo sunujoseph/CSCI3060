@@ -1,10 +1,7 @@
-Enter user name: 
-Enter seller name: 
-Enter item name: 
-Current highest bid is: $100.00
-Bid is not more than 105% of current highest bid.
-Enter seller name: 
-Ender item name: 
-Current highest bid is $100.00
-Bid accepted.
-Logged out.
+Enter Username: 
+Enter Item Name: 
+Enter Seller Username: 
+Current Highest Bid Is: 12.34
+Enter Bid: 
+Error: Bid Must Be 5% Higher Than Current Highest Bid
+Enter Bid: 

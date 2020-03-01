@@ -1,3 +1,0 @@
-Enter Username: 
-Enter Item Name: 
-Error: Invalide Name 

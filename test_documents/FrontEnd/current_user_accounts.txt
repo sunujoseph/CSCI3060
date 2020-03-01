@@ -3,4 +3,5 @@ admin1          AA 000150.78
 userFS          FS 111111.11
 userSS          SS 222222.22
 userMaxCredit   FS 999999.00
+better admin    AA 987654.32
 END                         

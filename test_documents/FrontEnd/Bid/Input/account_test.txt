@@ -1,28 +1,28 @@
 login
-AAuser
+admin1
 bid
-sellername
-itemname
+userSS
+item2
 100
 logout
 
 login
-FSuser
+userFS
 bid
-sellername
-itemname
-100
+admin1
+item1
+200
 logout
 
 login
-BSuser
+userBS
 bid
-sellername
-itemname
-100
+userFS
+item3
+300.45
 logout
 
 login
-SSuser
+userSS
 bid
 logout

@@ -1,6 +1,5 @@
-Enter user name: 
-Enter seller name: 
-Enter item name: 
-Current highest bid is: $100.00
-Bid accepted.
-Logged out.
+Enter Username: 
+Enter Item Name: 
+Enter Seller Username: 
+Current Highest Bid Is: 100.00
+Enter Bid:

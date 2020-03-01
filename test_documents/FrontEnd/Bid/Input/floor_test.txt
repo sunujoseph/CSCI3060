@@ -1,11 +1,6 @@
 login
-username
+userBS
 bid
-sellername
-itemname
-104
-bid
-sellername
-itemname
-106
-logout
+item2
+userSS
+10.01

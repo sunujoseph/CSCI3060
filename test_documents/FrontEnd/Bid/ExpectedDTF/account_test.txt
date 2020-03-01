@@ -1,0 +1,7 @@
+04 item2               userSS          admin1          100.00
+00 admin1          AA 000150.78
+04 item1               admin1          userFS          200.00
+00 userFS          FS 111111.11
+04 item 3              userFS          userBS          300.45
+00 userBS          BS 123456.78
+00 userSS          SS 222222.22

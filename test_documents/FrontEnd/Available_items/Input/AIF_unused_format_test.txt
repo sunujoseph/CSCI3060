@@ -1,4 +1,0 @@
-login
-john123smith
-readDTF 2020/01/29
-logout

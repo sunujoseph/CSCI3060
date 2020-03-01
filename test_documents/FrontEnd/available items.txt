@@ -1,2 +1,5 @@
-item1                     admin1          user1           098 000134
-END                                                                 
+item1               admin1          userBS          098 134.00
+item2               userSS          userFS          012 012.34
+item 3              userFS          admin1          034 100.00
+i t e m 4           userSS          userBS          011 500.00
+END                                                           
