@@ -1,4 +1,3 @@
 Enter user name: 
 Enter user name to be deleted: 
 Cannot delete, user does not exist.
-Logged out
