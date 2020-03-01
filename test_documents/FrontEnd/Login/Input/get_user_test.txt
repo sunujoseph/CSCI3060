@@ -1,2 +1,3 @@
 login
-user1
+admin1
+logout
