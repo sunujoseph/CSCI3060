@@ -1,0 +1,5 @@
+02 userBS          BS 123456.78
+00 admin1          AA 000150.78
+00 userFS          FS 111111.11
+00 userBS          BS 123456.78
+00 userSS          SS 222222.22
