@@ -1,2 +1,4 @@
+Enter Username: 
 Enter Username For New User: 
-Error: Username taken
+Error: User With That Name Already Exists
+Enter Username For New User: 

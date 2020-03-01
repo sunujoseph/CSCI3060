@@ -1,3 +1,0 @@
-Enter user name: 
-Current user file: (display CUA)
-Logged out.

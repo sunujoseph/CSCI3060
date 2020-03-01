@@ -1,2 +1,4 @@
+login
+admin1
 create
 new_user
