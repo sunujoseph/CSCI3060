@@ -1,20 +1,20 @@
 login
-AAusername
+admin1
 delete
 username
 logout
 
 login
-FSusername
+userFS
 delete
 logout
 
 login
-BSusername
+userBS
 delete
 logout
 
 login
-SSusername
+userSS
 delete
 logout
