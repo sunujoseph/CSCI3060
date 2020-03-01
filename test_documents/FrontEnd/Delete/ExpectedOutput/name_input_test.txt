@@ -1,4 +1,4 @@
-Enter user name: 
+Enter Username: 
 Enter a user name to delete the account of: 
-User: username, has been deleted.
-Logged out.
+User: userBS, has been deleted.
+logged out
