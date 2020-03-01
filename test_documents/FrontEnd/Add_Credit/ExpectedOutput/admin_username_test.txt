@@ -1,7 +1,4 @@
 Enter Username: 
 Enter User Name To Add Credit To: 
-<<<<<<< HEAD
-Error: Cannot Add Credit To User That Does Not Exist 
-=======
 Error: Cannot Add Credit To User That Does Not Exist
->>>>>>> 9c2a426d2fb208ea0ac3da5fb156edc1d3a04f44
+Enter User Name To Add Credit To: 

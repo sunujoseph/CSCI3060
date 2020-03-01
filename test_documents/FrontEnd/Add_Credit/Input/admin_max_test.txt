@@ -3,14 +3,3 @@ admin1
 addcredit
 userBS
 1001
-logout
-login
-admin1
-addcredit
-user1
-<<<<<<< HEAD
-1001
-=======
-1001
-logout
->>>>>>> 9c2a426d2fb208ea0ac3da5fb156edc1d3a04f44

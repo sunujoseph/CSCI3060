@@ -1,18 +1,4 @@
-<<<<<<< HEAD
-Enter user name: 
-Enter amount of credit to add to your account: 
-Cannot have more than $999,999 in your account.
-Logged out.
-
-Enter user name: 
-Enter user name of user to add credit to: 
-Enter amount of credit to give to user: 
-=======
 Enter Username: 
 Enter Amount To Add To Account: 
-Cannot have more than $999,999 in your account.
-Enter Username: 
-Enter User Name To Add Credit To: 
-Enter Amount To Add: 
->>>>>>> 9c2a426d2fb208ea0ac3da5fb156edc1d3a04f44
-User cannot have more than $999,999 in their account.
+Error: Cannot Have More Than 999,999.00 In Your Account.
+Enter Amount To Add To Account: 
