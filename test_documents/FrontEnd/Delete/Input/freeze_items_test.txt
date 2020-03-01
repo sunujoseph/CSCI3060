@@ -4,4 +4,4 @@ delete
 userBS
 bid
 userBs
-logout
+
