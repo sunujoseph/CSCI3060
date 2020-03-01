@@ -2,4 +2,3 @@ login
 admin1
 delete
 userBS
-logout
