@@ -1,4 +1,3 @@
 login
 admin1
 login
-logout
