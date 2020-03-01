@@ -1,5 +1,5 @@
-Enter user name: 
+Enter Username: 
 enter user name to be deleted: 
-User: username, has been succesfully deleted.
+User: userBS, has been succesfully deleted.
 Enter seller name: 
 Cannot bid on items belonging to deleted users.
