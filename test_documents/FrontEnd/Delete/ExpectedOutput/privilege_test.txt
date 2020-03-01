@@ -1,6 +1,6 @@
 Enter user name: 
 Enter username to be deleted: 
-User: username has been deleted.
+User: userBS has been deleted.
 
 Enter user name: 
 You do not have permissions to perform this transaction.
