@@ -1,4 +1,4 @@
 Enter Username: 
-Enter Item Name: 
-Enter Minimum Bid: 
-Error: Invalid Input
+Enter Item: 
+Enter Seller Username: 
+Enter Bid: 

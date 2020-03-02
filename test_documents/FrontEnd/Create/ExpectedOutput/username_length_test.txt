@@ -1,4 +1,4 @@
-Enter Username:
+Enter Username: 
 Enter Username For New User: 
 Error: Invalid Name
 Enter Username For New User: 

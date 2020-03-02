@@ -1,4 +1,18 @@
 Enter Username: 
-Enter Item Name: 
-Enter Minimum Bid: 
+Enter Item: 
+Enter Seller Username: 
+Enter Bid: 
 Error: Invalid Input
+Enter Username: 
+Enter Item: 
+Enter Seller Username: 
+Enter Bid: 
+Error: Invalid Input
+Enter Username: 
+Error: You Do Not Have Privileges To Perform This Transaction
+Error: Invalid Command
+Error: Invalid Command
+Error: Invalid Command
+Error: Invalid Input
+Enter Username: 
+Error: You Do Not Have Privileges To Perform This Transaction
