@@ -1,3 +1,4 @@
-path recieved: C:\Users\pwner\Documents\Uoit\Year 5 Semester 2\CSCI 3060U\Project\CSCI3060\test_documents\FrontEnd\Add_Credit\ActualDTF\standard_max_test.txt
-Enter Username: Error: Invalid Input
-Error: Not Logged In
+Enter Username: Enter Amount To Add To Accound: Error: Maximum Amount To Add Is 1000.00
+Enter Amount To Add To Accound: Error: Invalid Input
+Error: Maximum Amount To Add Is 1000.00
+Enter Amount To Add To Accound: 

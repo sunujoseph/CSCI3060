@@ -1,4 +1,4 @@
-path recieved: C:\Users\pwner\Documents\Uoit\Year 5 Semester 2\CSCI 3060U\Project\CSCI3060\test_documents\FrontEnd\Add_Credit\ActualDTF\admin_max_test.txt
-Enter Username: Error: Invalid Input
-Error: Invalid Input
-Error: Not Logged In
+Enter Username: Enter User Name To Add Credit To: Enter Amount To Add: Error: Cannot Add More Than 1000.00 Credit
+Enter Amount To Add: Error: Invalid Input
+Error: Cannot Add More Than 1000.00 Credit
+Enter Amount To Add: 

@@ -1,6 +1,1 @@
-path recieved: C:\Users\pwner\Documents\Uoit\Year 5 Semester 2\CSCI 3060U\Project\CSCI3060\test_documents\FrontEnd\Advertise\ActualDTF\Advertise_DTF_Test.txt
-Enter Username: Error: Invalid Input
-Error: Invalid Input
-Error: Not Logged In
-Error: Not Logged In
-Error: Invalid Input
+Enter Username: Enter Item Name: Enter Minimum Bid: Enter Number Of Days Until Auction Ends: Error: Invalid Input

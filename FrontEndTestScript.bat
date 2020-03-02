@@ -17,7 +17,7 @@ for /d %%c in (*) do (
 		if errorlevel 1 (
 			set /A pass = !pass! + 2
 		)
-		if !pass! == 0 echo %%c: %%f Passed
+		if !pass! == 0 echo %%c: %%f Passed ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		if !pass! == 1 echo %%c: %%f Failed: Expected Output and Actual Output Don't Match
 		if !pass! == 2 echo %%c: %%f Failed: Expected DTF and Actual DTF Don't Match
 		if !pass! == 3 echo %%c: %%f Failed: Expected Output/DTF and Actual Output/DTF Don't Match 

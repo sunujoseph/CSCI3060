@@ -1,0 +1,2 @@
+06 userBS AA 100
+00 admin1          AA 150.780000

@@ -1,5 +1,4 @@
-path recieved: C:\Users\pwner\Documents\Uoit\Year 5 Semester 2\CSCI 3060U\Project\CSCI3060\test_documents\FrontEnd\Bid\ActualDTF\floor_test.txt
-Enter Username: Error: Not Logged In
-Error: Not Logged In
-Error: Invalid Input
-Error: Not Logged In
+Enter Username: Error: You Do Not Have Privileges To Perform This Transaction
+Error: Invalid Command
+Error: Invalid Command
+Error: Invalid Command

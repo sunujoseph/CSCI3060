@@ -57,7 +57,7 @@ string pad(string data, int size, char padding, char side) {
 		for (int i = 0; i < data.length(); i++) {
 			paddedData[i] = dataCStr[i];
 		}
-		for (int i = size - data.length(); i < size; i++) {
+		for (int i = data.length(); i < size; i++) {
 			paddedData[i] = padding;
 		}
 	}

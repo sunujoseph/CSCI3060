@@ -1,9 +1,8 @@
-path recieved: C:\Users\pwner\Documents\Uoit\Year 5 Semester 2\CSCI 3060U\Project\CSCI3060\test_documents\FrontEnd\Delete\ActualDTF\privilege_test.txt
-Enter Username: Error: Invalid Input
-Error: Invalid Input
-Error: Invalid Input
-Enter Username: Error: Invalid Input
-Error: Invalid Input
-Enter Username: Error: Invalid Input
-Error: Invalid Input
-Enter Username: Error: Invalid Input
+Enter Username: Enter Username of User to Delete: Error: Invalid Input
+Error: Already Logged In
+Error: Invalid Command
+Enter Username of User to Delete: Error: Invalid Username
+Enter Username of User to Delete: Error: Invalid Command
+Enter Username of User to Delete: Error: Invalid Username
+Enter Username of User to Delete: Error: Invalid Command
+Enter Username of User to Delete: 

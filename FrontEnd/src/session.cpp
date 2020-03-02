@@ -331,7 +331,7 @@ if name is not found returns null
 */
 session* session::login() {
 	string username = getInputWithSpaces("Enter Username: ", "Error: Invalid Username", 15);
-	
+	username = pad(username, 15, ' ', 'l');
 	vector<string> currentUserAccounts = FileReader::getCurrentUserAccounts();
 	
 	for (int i = 0; i < currentUserAccounts.size() - 1; i++) {
@@ -349,7 +349,7 @@ void session::sessionLoop() {
 #if(_DEBUG)
 		checkTestEnd
 #endif
-		cin >> command;
+		command = getInputWithSpaces("", "Error: Invalid Input", 20);
 
 		if (command.compare("login") == 0) {
 			cout << "Error: Already Logged In" << endl;

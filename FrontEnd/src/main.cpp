@@ -81,6 +81,7 @@ int main(int argc, char** argv) {
 	}
 #if(_DEBUG)
 testExitL:
+	transactionFileWriter::writeOut();
 #endif
 	transactionFileWriter::shutdown();
 	fileReaderThread.join();
