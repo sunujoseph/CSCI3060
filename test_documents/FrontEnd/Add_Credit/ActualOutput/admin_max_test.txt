@@ -1,8 +1,4 @@
 path recieved: C:\Users\pwner\Documents\Uoit\Year 5 Semester 2\CSCI 3060U\Project\CSCI3060\test_documents\FrontEnd\Add_Credit\ActualDTF\admin_max_test.txt
-Enter Username: temp: |
-addcreditÍÍÍÍÍÍÍııııDE‹7o™J|
-username: |admin1
-addcredi| not found
-Error: Not Logged In
-Error: Not Logged In
+Enter Username: Error: Invalid Input
+Error: Invalid Input
 Error: Not Logged In

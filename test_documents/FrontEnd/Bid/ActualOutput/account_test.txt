@@ -1,39 +1,21 @@
 path recieved: C:\Users\pwner\Documents\Uoit\Year 5 Semester 2\CSCI 3060U\Project\CSCI3060\test_documents\FrontEnd\Bid\ActualDTF\account_test.txt
-Enter Username: temp: |
-bid
-userSอออออออýýýýÝÝÝ6{W|
-username: |admin1
-bid
-user| not found
+Enter Username: Error: Not Logged In
+Error: Invalid Input
 Error: Not Logged In
 Error: Not Logged In
+Error: Invalid Input
+Error: Invalid Input
+Enter Username: Error: Not Logged In
+Error: Invalid Input
 Error: Not Logged In
 Error: Not Logged In
-Enter Username: temp: |
-bid
-adminอออออออýýýý|
-username: |userFS
-bid
-admi| not found
+Error: Invalid Input
+Error: Invalid Input
+Enter Username: Error: Not Logged In
+Error: Invalid Input
 Error: Not Logged In
-Error: Not Logged In
-Error: Not Logged In
-Error: Not Logged In
-Enter Username: temp: |
-bid
-userFอออออออýýýý|
-username: |userBS
-bid
-user| not found
-Error: Not Logged In
-Error: Not Logged In
-Error: Not Logged In
-Error: Not Logged In
-Enter Username: temp: |
-bid
-logouอออออออýýýý|
-username: |userSS
-bid
-logo| not found
-Error: Not Logged In
-Error: Not Logged In
+Error: Invalid Input
+Error: Invalid Input
+Error: Invalid Input
+Enter Username: Error: Not Logged In
+Error: Invalid Input

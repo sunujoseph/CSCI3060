@@ -47,7 +47,7 @@ int main(int argc, char** argv) {
 
 #else
 	*/
-	cout << "path recieved: " << string(argv[3]) << endl;
+	
 	transactionFileWriter::setPath(argv[3]);
 	thread fileReaderThread(FileReader::run, vector<string>{ argv[1], argv[2] });
 	thread fileWriterThread(transactionFileWriter::run);

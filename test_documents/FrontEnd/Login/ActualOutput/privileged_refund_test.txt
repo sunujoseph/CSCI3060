@@ -1,5 +1,2 @@
 path recieved: C:\Users\pwner\Documents\Uoit\Year 5 Semester 2\CSCI 3060U\Project\CSCI3060\test_documents\FrontEnd\Login\ActualDTF\privileged_refund_test.txt
-Enter Username: temp: |
-refundÍÍÍÍÍÍÍÍÍÍııııİİİf™—¦êŞ|
-username: |admin1
-refun   | not found
+Enter Username: Error: Invalid Input
