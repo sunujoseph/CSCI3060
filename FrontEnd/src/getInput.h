@@ -16,10 +16,12 @@ std::string getMonetaryInputAsString(std::string prompt, Callable constraintF) {
 #if(_DEBUG)
 		checkTestEnd
 #endif
-			std::cin >> input;
+		std::cin >> input;
 		//check if any remaining input in cin
-		if (std::cin.peek() != '\n') {
+		if (std::cin.peek() != 10) {
 			std::cout << "Error: Invalid Input" << std::endl;
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			continue;
 		}
 		for (int i = 0; i < input.length(); i++) {
 			if ((input[i] == '.') && (input.length() - i > 3)) {
@@ -30,6 +32,7 @@ std::string getMonetaryInputAsString(std::string prompt, Callable constraintF) {
 			validInput = true;
 		}
 	}
+	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	return input;
 }
 double getMonetaryInput(std::string prompt, bool(*constraintF)(std::string));
