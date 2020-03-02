@@ -1,1 +1,0 @@
-06 userMaxCredit   FS 100

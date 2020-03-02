@@ -1,5 +1,7 @@
 #include <string>
 #include "user.h"
+#include <sstream>
+#include <iomanip>
 
 using namespace std;
 
@@ -18,6 +20,7 @@ user::user(string username, string userType, string credit) {
 		this->userType = SELL_STANDARD;
 	}
 	this->credit = stod(credit);
+	this->startingCredit = stod(credit);
 }
 
 string user::getUsername() {
@@ -26,6 +29,12 @@ string user::getUsername() {
 
 double user::getCredit() {
 	return credit;
+}
+
+string user::getCreditAsString() {
+	stringstream ss;
+	ss << fixed << setprecision(2) << credit;
+	return ss.str();
 }
 
 unsigned int user::getUserType() {
@@ -43,4 +52,12 @@ string user::getUserTypeAsString() {
 		return "BS";
 	}
 	return "SS";
+}
+
+void user::addCredit(double credit) {
+	this->credit += credit;
+}
+
+double user::getStartCredit() {
+	return this->startingCredit;
 }

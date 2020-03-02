@@ -1,2 +1,2 @@
-06 userFS          FS 100
-00 userFS          FS 111111.110000
+06 userFS          FS 111211.11
+00 userFS          FS 111211.11

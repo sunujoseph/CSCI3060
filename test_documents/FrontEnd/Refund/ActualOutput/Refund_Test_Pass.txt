@@ -2,3 +2,4 @@ Enter Username:
 Enter Buyer Username: 
 Enter Seller Username: 
 Enter Minimum Bid: 
+Error: Invalid Input

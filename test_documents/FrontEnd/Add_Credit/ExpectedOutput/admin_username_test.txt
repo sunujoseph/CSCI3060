@@ -1,4 +1,4 @@
 Enter Username: 
 Enter User Name To Add Credit To: 
-Error: Cannot Add Credit To User That Does Not Exist
+Error: No User With That Name Exists
 Enter User Name To Add Credit To: 

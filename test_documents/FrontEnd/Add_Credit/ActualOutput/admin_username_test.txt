@@ -1,3 +1,4 @@
 Enter Username: 
 Enter User Name To Add Credit To: 
-Enter Amount To Add: 
+Error: No User With That Name Exists
+Enter User Name To Add Credit To: 

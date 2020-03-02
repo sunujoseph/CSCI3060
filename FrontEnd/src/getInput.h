@@ -23,16 +23,28 @@ std::string getMonetaryInputAsString(std::string prompt, Callable constraintF) {
 			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 			continue;
 		}
+		try {
+			std::stod(input);
+		}
+		catch (std::exception e) {
+			std::cout << "Error: Invalid Input" << std::endl;
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		}
+		bool cont = false;
 		for (int i = 0; i < input.length(); i++) {
 			if ((input[i] == '.') && (input.length() - i > 3)) {
 				std::cout << "Error: Monetary Values Can Have Max 2 Decimal Precision" << std::endl;
+				std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+				cont = true;
+				break;
 			}
 		}
+		if (cont) continue;
 		if (constraintF(input)) {
 			validInput = true;
 		}
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	}
-	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 	return input;
 }
 double getMonetaryInput(std::string prompt, bool(*constraintF)(std::string));

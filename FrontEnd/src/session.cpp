@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <vector>
 #include "getInput.h"
 #include "user.h"
 #include "FileReader.h"
@@ -26,7 +27,7 @@ void session::logout() {
 	transaction += " ";
 	transaction += userObject->getUserTypeAsString();
 	transaction += " ";
-	transaction += to_string(userObject->getCredit());
+	transaction += pad(userObject->getCreditAsString(), 9, '0', 'r');
 	transactionFileWriter::add(transaction);
 	transactionFileWriter::writeOut();
 }
@@ -183,28 +184,64 @@ void session::addCredit() {
 	//path for if user is admin type is different than if user is full standard
 	//admin path first
 	if ((userObject->getUserType() & (user::ADMIN)) == userObject->getUserType()) {
-		string userName = getInputWithSpaces("Enter User Name To Add Credit To: ", "Error: Invalid User Name", 15);
-		string creditAmount = getMonetaryInputAsString("Enter Amount To Add: ", [](string input) {
-			double val = stod(input);
-			if (val < 0) {
-				cout << "Error: Cannot Add Negative Credit" << endl;
-				return false;
+		user* userToAddTo = NULL;
+		bool validUser = false;
+		while (!validUser) {
+			string userName = getInputWithSpaces("Enter User Name To Add Credit To: ", "Error: Invalid User Name", 15);
+			userName = pad(userName, 15, ' ', 'l');
+			vector<string> currentUserAccounts = FileReader::getCurrentUserAccounts();
+
+			for (int i = 0; i < currentUserAccounts.size() - 1; i++) {
+				string& line = currentUserAccounts[i];
+				if (line.substr(0, 15).compare(userName) == 0) {
+					userToAddTo = new user(line.substr(0, 15), line.substr(16, 2), line.substr(19, 9));
+					validUser = true;
+					break;
+				}
 			}
-			else if (val > 1000.00) {
-				cout << "Error: Cannot Add More Than 1000.00 Credit" << endl;
-				return false;
+			if (!validUser) {
+				cout << "Error: No User With That Name Exists" << endl;
 			}
-			return true;
-		});
+		}
+		while (true) {
+			double creditAmount = getMonetaryInput("Enter Amount To Add: ", [](string input) {
+				double val = stod(input);
+				if (val < 0) {
+					cout << "Error: Cannot Add Negative Credit" << endl;
+					return false;
+				}
+				else if (val > 1000.00) {
+					cout << "Error: Cannot Add More Than 1000.00 Credit" << endl;
+					return false;
+				}
+				return true;
+			});
+			if (creditAmount + userToAddTo->getCredit() > 999999.0) {
+				cout << "Error: Cannot Have More Than 999,999.00 In Your Account." << endl;
+				continue;
+			}
+			for (user* trackedUser : userCreditTracker) {
+				if (trackedUser->getUsername().compare(userToAddTo->getUsername()) == 0) {
+					if (trackedUser->getCredit() + creditAmount - trackedUser->getStartCredit() > 1000) {
+						cout << "Error: Cannot Add More Than 1000.00 Credit To A User In A Single Session" << endl;
+						continue;
+					}
+				}
+			}
+			userToAddTo->addCredit(creditAmount);
+			userCreditTracker.push_back(userToAddTo);
+			break;
+			
+		}
 
 		//creates the transaction line and sends it to writer
 		string transaction;
 		transaction += "06 ";
-		transaction += userName;
+		transaction += userToAddTo->getUsername();
 		transaction += " ";
 		transaction += "AA";
 		transaction += " ";
-		transaction += creditAmount;
+		transaction += pad(userToAddTo->getCreditAsString(), 9, '0', 'r');
 		transactionFileWriter::add(transaction);
 		transactionFileWriter::writeOut();
 
@@ -214,19 +251,32 @@ void session::addCredit() {
 
 	//Full standard user path
 	if ((userObject->getUserType() & (user::FULL_STANDARD)) == userObject->getUserType()) {
-		string creditAmount = getMonetaryInputAsString("Enter Amount To Add To Accound: ", [](string input) {
-			double val = stod(input);
-			if (val < 0) {
-				cout << "Error: Cannot add negative credit" << endl;
-				return false;
+		while (true) {
+			double creditAmount = getMonetaryInput("Enter Amount To Add To Account: ", [](string input) {
+				double val = stod(input);
+				if (val < 0) {
+					cout << "Error: Cannot add negative credit" << endl;
+					return false;
+				}
+				else if (val > 1000.00) {
+					cout << "Error: Maximum Amount To Add Is 1000.00" << endl;
+					return false;
+				}
+				return true;
+			});
+			if (creditAmount + userObject->getCredit() > 999999.0) {
+				cout << "Error: Cannot Have More Than 999,999.00 In Your Account." << endl;
+				continue;
 			}
-			else if (val > 1000.00) {
-				cout << "Error: Maximum Amount To Add Is 1000.00" << endl;
-				return false;
+			else if (userObject->getCredit() + creditAmount - userObject->getStartCredit() > 1000) {
+				cout << "Error: Cannot Add More Than 1000.00 Credit To Your Account In A Single Session" << endl;
+				continue;
 			}
-			return true;
-		});
-
+			else {
+				userObject->addCredit(creditAmount);
+				break;
+			}
+		}
 
 		//creates the transaction line and sends it to the writer
 		string transaction;
@@ -235,7 +285,7 @@ void session::addCredit() {
 		transaction += " ";
 		transaction += "FS";
 		transaction += " ";
-		transaction += creditAmount;
+		transaction += pad(userObject->getCreditAsString(), 9, '0', 'r');
 		transactionFileWriter::add(transaction);
 		transactionFileWriter::writeOut();
 		return;
@@ -384,4 +434,11 @@ void session::sessionLoop() {
 
 session::session(user* userObject) {
 	this->userObject = userObject;
+}
+
+session::~session() {
+	for (user* user : userCreditTracker) {
+		delete user;
+	}
+	delete userObject;
 }

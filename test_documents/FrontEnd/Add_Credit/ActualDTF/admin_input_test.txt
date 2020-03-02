@@ -1,2 +1,2 @@
-06 userBS AA 100
-00 admin1          AA 150.780000
+06 userBS          AA 123556.78
+00 admin1          AA 000150.78

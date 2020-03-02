@@ -1,2 +1,4 @@
 Enter Username: 
-Enter Amount To Add To Accound: 
+Enter Amount To Add To Account: 
+Error: Cannot Have More Than 999,999.00 In Your Account.
+Enter Amount To Add To Account: 

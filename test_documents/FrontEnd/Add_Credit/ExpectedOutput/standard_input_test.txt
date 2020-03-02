@@ -1,2 +1,2 @@
-Enter user name: 
-Enter amount of money to add to your account: 
+Enter Username: 
+Enter Amount To Add To Account: 

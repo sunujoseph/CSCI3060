@@ -1,3 +1,4 @@
 Enter Username: 
 Enter Item Name: 
 Enter Minimum Bid: 
+Error: Invalid Input
