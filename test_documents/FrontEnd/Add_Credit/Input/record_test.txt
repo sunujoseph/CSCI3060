@@ -2,3 +2,4 @@ login
 userFS
 addcredit
 100
+logout

@@ -4,3 +4,4 @@ bid
 i t e m 4
 userSS
 500.01
+logout

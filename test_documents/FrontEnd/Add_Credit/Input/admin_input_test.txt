@@ -3,4 +3,4 @@ admin1
 addcredit
 userBS
 100
-
+logout

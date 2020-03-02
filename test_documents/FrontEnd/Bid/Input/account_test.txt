@@ -4,7 +4,7 @@ bid
 userSS
 item2
 100
-
+logout
 
 login
 userFS
@@ -12,7 +12,7 @@ bid
 admin1
 item1
 200
-
+logout
 
 login
 userBS
@@ -20,8 +20,9 @@ bid
 userFS
 item3
 300.45
-
+logout
 
 login
 userSS
 bid
+logout
