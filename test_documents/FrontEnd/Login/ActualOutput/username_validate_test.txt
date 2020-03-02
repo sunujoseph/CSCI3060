@@ -1,0 +1,4 @@
+path recieved: C:\Users\pwner\Documents\Uoit\Year 5 Semester 2\CSCI 3060U\Project\CSCI3060\test_documents\FrontEnd\Login\ActualDTF\username_validate_test.txt
+Enter Username: temp: |อออออออออออออออออýýýý|
+Error: Invalid Username
+Enter Username: 

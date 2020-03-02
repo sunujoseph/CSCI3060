@@ -4,16 +4,16 @@ cd /d %~dp0\test_documents\FrontEnd
 set back=%cd%
 for /d %%c in (*) do (
 	cd %cd%\%%c\Input
-	mkdir %cd%\%%c\ActualOutput
-	mkdir %cd%\%%c\ActualDTF
+	if not exist "%cd%\%%c\ActualOutput\" (mkdir "%cd%\%%c\ActualOutput")
+	if not exist "%cd%\%%c\ActualDTF\" (mkdir "%cd%\%%c\ActualDTF")
 	for %%f in (*) do (
-		%~dp0FrontEnd\FrontEnd.exe "%cd%\current_user_accounts.txt" "%cd%\available items.txt" "%cd%\%%c\ActualDTF\%%f" > "%cd%\%%c\ActualOutput\%%f" < "%cd%\%%c\Input\%%f"
+		"%~dp0FrontEnd"\FrontEnd.exe "%cd%\current_user_accounts.txt" "%cd%\available items.txt" "%cd%\%%c\ActualDTF\%%f" > "%cd%\%%c\ActualOutput\%%f" < "%cd%\%%c\Input\%%f"
 		set /A pass = 0
-		fc /b %cd%\%%c\ExpectedOutput\%%f %cd%\%%c\ActualOutput\%%f > nul
+		fc /b "%cd%\%%c\ExpectedOutput\%%f" "%cd%\%%c\ActualOutput\%%f" > nul
 		if errorlevel 1 (
 			set /A pass = !pass! + 1
 		)
-		fc /b %cd%\%%c\ExpectedDTF\%%F %cd%\%%c\ActualDTF\%%f > nul
+		fc /b "%cd%\%%c\ExpectedDTF\%%f" "%cd%\%%c\ActualDTF\%%f" > nul
 		if errorlevel 1 (
 			set /A pass = !pass! + 2
 		)

@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include "getInput.h"
 #include "user.h"
 #include "FileReader.h"
 #include "transactionFileWriter.h"
@@ -319,100 +320,6 @@ void session::deleteUser() {
 	transactionFileWriter::add(transaction);
 
 
-}
-
-string session::getInputWithSpaces(string prompt, string errorMsg, int maxLength) {
-	string input;
-	char* temp = new char[maxLength + 2];
-	bool validInput = false;
-	while (!validInput) {
-		cout << prompt;
-#if(_DEBUG)
-		checkTestEnd
-#endif
-		//using ">>" blocks until user enters new line character, but only retrieves input
-		//up to first whitespace character
-		cin >> input;
-		//get remaining input contained in cin
-		cin.readsome(temp, maxLength + 1 - input.length());
-		if ((cin.gcount() + input.length() > maxLength + 1) || (cin.gcount() + input.length() < 2)) {
-			cout << errorMsg << endl;
-		}
-		else {
-			validInput = true;
-		}
-	}
-	char* combinedInput = new char[maxLength + 1];
-	const char* inputTemp = input.c_str();
-	for (int i = 0; i < input.length(); i++) {
-		combinedInput[i] = inputTemp[i];
-	}
-	for (int i = 0; i < cin.gcount() - 1; i++) {
-		combinedInput[input.length() + i] = temp[i];
-	}
-	for (int i = input.length() + cin.gcount() - 1; i < maxLength + 1; i++) {
-		combinedInput[i] = ' ';  //add spaces for padding
-	}
-	combinedInput[maxLength] = '\0';
-	string retInput = string(combinedInput);
-	delete[] temp;
-	delete[] combinedInput;
-	return retInput;
-}
-
-template <typename Callable>
-string session::getMonetaryInputAsString(string prompt, Callable constraintF) {
-	string input;
-	bool validInput = false;
-	while (!validInput) {
-		cout << prompt;
-#if(_DEBUG)
-		checkTestEnd
-#endif
-		cin >> input;
-		//check if any remaining input in cin
-		if (cin.peek() != '\n') {
-			cout << "Error: Invalid Input" << endl;
-		}
-		for (int i = 0; i < input.length(); i++) {
-			if ((input[i] == '.') && (input.length() - i > 3)) {
-				cout << "Error: Monetary Values Can Have Max 2 Decimal Precision" << endl;
-			}
-		}
-		if (constraintF(input)) {
-			validInput = true;
-		}
-	}
-	return input;
-}
-
-double session::getMonetaryInput(string prompt, bool (*constraintF)(string)) {
-	return stod(getMonetaryInputAsString(prompt, constraintF));
-}
-
-string session::pad(string data, int size, char padding, char side) {
-	char* paddedData = new char[size + 1];
-	const char* dataCStr = data.c_str();
-	if (side == 'r') {
-		for (int i = 0; i < size - data.length(); i++) {
-			paddedData[i] = padding;
-		}
-		for (int i = 0; i < data.length(); i++) {
-			paddedData[i + size - data.length()] = dataCStr[i];
-		}
-	}
-	else {
-		for (int i = 0; i < data.length(); i++) {
-			paddedData[i] = dataCStr[i];
-		}
-		for (int i = size - data.length(); i < size; i++) {
-			paddedData[i] = padding;
-		}
-	}
-	paddedData[size] = '\0';
-	string retData(paddedData);
-	delete[] paddedData;
-	return retData;
 }
 
 /*

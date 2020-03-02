@@ -1,0 +1,11 @@
+path recieved: C:\Users\pwner\Documents\Uoit\Year 5 Semester 2\CSCI 3060U\Project\CSCI3060\test_documents\FrontEnd\Delete\ActualDTF\freeze_items_test.txt
+Enter Username: temp: |
+delete
+usอออออออýýýýÝÝÝ t๗๑ฯ|
+username: |admin1
+delete
+u| not found
+Error: Not Logged In
+Error: Not Logged In
+Error: Not Logged In
+Error: Not Logged In

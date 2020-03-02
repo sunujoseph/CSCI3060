@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <thread>
+#include "getInput.h"
 #include "session.h"
 #include "transactionFileWriter.h"
 #include "FileReader.h"
@@ -11,6 +12,7 @@
 #include "main.h"
 #include <csetjmp>
 std::jmp_buf testExit;
+#define checkTestEnd if (cin.peek() == EOF) { longjmp(testExit, 1); }
 #endif
 
 using namespace std;
@@ -45,6 +47,7 @@ int main(int argc, char** argv) {
 
 #else
 	*/
+	cout << "path recieved: " << string(argv[3]) << endl;
 	transactionFileWriter::setPath(argv[3]);
 	thread fileReaderThread(FileReader::run, vector<string>{ argv[1], argv[2] });
 	thread fileWriterThread(transactionFileWriter::run);
@@ -56,10 +59,16 @@ int main(int argc, char** argv) {
 	}
 #endif
 	while (true) {
-		cin >> command;
+#if(_DEBUG)
+		checkTestEnd
+#endif
+		command = getInputWithSpaces("", "Error: Invalid Input", 5);
 		while (command.compare("login") != 0) {
 			cout << "Error: Not Logged In" << endl;
-			cin >> command;
+#if(_DEBUG)
+			checkTestEnd
+#endif
+			command = getInputWithSpaces("", "Error: Invalid Input", 5);
 		}
 		session* newSession;
 		if ((newSession = session::login()) != NULL) {

@@ -1,0 +1,10 @@
+path recieved: C:\Users\pwner\Documents\Uoit\Year 5 Semester 2\CSCI 3060U\Project\CSCI3060\test_documents\FrontEnd\Advertise\ActualDTF\Advertise_Name_Limit_Test.txt
+Enter Username: temp: |
+advertiseÍÍÍÍÍÍÍııııD’|
+username: |userSS
+advertis| not found
+Error: Not Logged In
+Error: Not Logged In
+Error: Not Logged In
+Error: Not Logged In
+Error: Not Logged In
