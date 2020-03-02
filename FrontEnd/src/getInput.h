@@ -3,7 +3,7 @@
 #include <iostream>
 #if(_DEBUG)
 #include "main.h"
-#define checkTestEnd if (std::cin.peek() == EOF) { std::longjmp(testExit, 1); }
+#define checkTestEnd if (std::cin.peek() == EOF) { std::longjmp(testExit, 1); } else {std::cout << std::endl;}
 #endif
 
 std::string getInputWithSpaces(std::string prompt, std::string errorMsg, int maxLength);

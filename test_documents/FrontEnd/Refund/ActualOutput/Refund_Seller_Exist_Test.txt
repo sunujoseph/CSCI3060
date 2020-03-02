@@ -1,4 +1,5 @@
-Enter Username: Error: Invalid Input
+Enter Username: 
+Error: Invalid Input
 Error: Not Logged In
 Error: Invalid Input
 Error: Not Logged In

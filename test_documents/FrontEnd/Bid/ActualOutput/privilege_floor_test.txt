@@ -1,1 +1,3 @@
-Enter Username: Enter Item Name: Enter Minimum Bid: 
+Enter Username: 
+Enter Item Name: 
+Enter Minimum Bid: 

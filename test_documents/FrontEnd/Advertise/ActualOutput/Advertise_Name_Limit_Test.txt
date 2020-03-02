@@ -1,3 +1,6 @@
-Enter Username: Enter Item Name: Error: Invalid Name
-Enter Item Name: Enter Minimum Bid: Enter Number Of Days Until Auction Ends: Error: Invalid Input
+Enter Username: 
+Enter Item Name: 
+Error: Invalid Name
+Enter Item Name: 
+Enter Minimum Bid: 
 Enter Number Of Days Until Auction Ends: 

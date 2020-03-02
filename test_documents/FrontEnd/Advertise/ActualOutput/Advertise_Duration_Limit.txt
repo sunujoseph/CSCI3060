@@ -1,3 +1,6 @@
-Enter Username: Enter Item Name: Enter Minimum Bid: Enter Number Of Days Until Auction Ends: Error: Maximum Number Of Days Until Auction Ends Is 100
+Enter Username: 
+Enter Item Name: 
+Enter Minimum Bid: 
+Enter Number Of Days Until Auction Ends: Error: Maximum Number Of Days Until Auction Ends Is 100
 Enter Number Of Days Until Auction Ends: Error: Invalid Input
 Enter Number Of Days Until Auction Ends: 

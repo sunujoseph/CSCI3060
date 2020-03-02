@@ -1,4 +1,5 @@
-Enter Username: Error: You Do Not Have Privileges To Perform This Transaction
+Enter Username: 
+Error: You Do Not Have Privileges To Perform This Transaction
 Error: Invalid Command
 Error: Invalid Command
 Error: Invalid Command

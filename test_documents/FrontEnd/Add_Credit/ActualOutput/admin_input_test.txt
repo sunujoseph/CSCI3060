@@ -1,1 +1,3 @@
-Enter Username: Enter User Name To Add Credit To: Enter Amount To Add: Error: Invalid Input
+Enter Username: 
+Enter User Name To Add Credit To: 
+Enter Amount To Add: 

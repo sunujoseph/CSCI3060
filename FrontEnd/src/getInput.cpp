@@ -3,7 +3,7 @@
 #include "getInput.h"
 #if(_DEBUG)
 #include "main.h"
-#define checkTestEnd if (cin.peek() == EOF) { longjmp(testExit, 1); }
+#define checkTestEnd if (cin.peek() == EOF) { longjmp(testExit, 1); } else if (prompt.compare("") != 0) {std::cout << std::endl;}
 #endif
 
 using namespace std;

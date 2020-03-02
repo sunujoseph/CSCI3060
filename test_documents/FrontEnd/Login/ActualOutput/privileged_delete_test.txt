@@ -1,1 +1,2 @@
-Enter Username: Enter Username of User to Delete: 
+Enter Username: 
+Enter Username of User to Delete: 

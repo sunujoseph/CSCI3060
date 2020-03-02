@@ -1,1 +1,2 @@
-Enter Username: Enter Username For New User: 
+Enter Username: 
+Enter Username For New User: 

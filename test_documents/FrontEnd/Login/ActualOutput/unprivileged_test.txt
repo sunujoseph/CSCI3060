@@ -1,3 +1,4 @@
-Enter Username: Error: You Do Not Have Privileges To Perform This Transaction
+Enter Username: 
+Error: You Do Not Have Privileges To Perform This Transaction
 Error: You Do Not Have Privileges To Perform This Transaction
 Error: You Do Not Have Privileges To Perform This Transaction

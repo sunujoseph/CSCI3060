@@ -1,1 +1,6 @@
-Enter Username: Enter Username of User to Delete: Enter Item Name: Enter Minimum Bid: Error: Invalid Input
+Enter Username: 
+Enter Username of User to Delete: 
+Enter Item Name: 
+Enter Minimum Bid: 
+Error: Invalid Input
+Enter Minimum Bid: 

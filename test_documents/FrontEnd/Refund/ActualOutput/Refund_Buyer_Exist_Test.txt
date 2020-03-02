@@ -1,1 +1,4 @@
-Enter Username: Enter Buyer Username: Enter Seller Username: Enter Minimum Bid: 
+Enter Username: 
+Enter Buyer Username: 
+Enter Seller Username: 
+Enter Minimum Bid: 
