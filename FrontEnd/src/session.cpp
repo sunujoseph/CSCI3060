@@ -146,16 +146,22 @@ void session::create() {
 		return;
 	}
 	string newUsername;
-	while (true) {
+	bool validName = false;
+	while (!validName) {
 		newUsername = getInputWithSpaces("Enter Username For New User: ", "Error: Invalid Name", 15);
+		newUsername = pad(newUsername, 15, ' ', 'l');
 		vector<string> currentUserAccounts = FileReader::getCurrentUserAccounts();
+		bool cont = false;
 		for (int i = 0; i < currentUserAccounts.size() - 1; i++) {
 			string& line = currentUserAccounts[i];
 			if (line.substr(0, 15).compare(newUsername) == 0) {
 				cout << "Error: User With That Name Already Exists" << endl;
-				continue;
+				cont = true;
+				break;
 			}
 		}
+		if (cont) continue;
+		validName = true;
 		break;
 	}
 
