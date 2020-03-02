@@ -9,11 +9,11 @@ for /d %%c in (*) do (
 	for %%f in (*) do (
 		"%~dp0FrontEnd"\FrontEnd.exe "%cd%\current_user_accounts.txt" "%cd%\available items.txt" "%cd%\%%c\ActualDTF\%%f" > "%cd%\%%c\ActualOutput\%%f" < "%cd%\%%c\Input\%%f"
 		set /A pass = 0
-		fc /b "%cd%\%%c\ExpectedOutput\%%f" "%cd%\%%c\ActualOutput\%%f" > nul
+		fc /l "%cd%\%%c\ExpectedOutput\%%f" "%cd%\%%c\ActualOutput\%%f" > nul
 		if errorlevel 1 (
 			set /A pass = !pass! + 1
 		)
-		fc /b "%cd%\%%c\ExpectedDTF\%%f" "%cd%\%%c\ActualDTF\%%f" > nul
+		fc /l "%cd%\%%c\ExpectedDTF\%%f" "%cd%\%%c\ActualDTF\%%f" > nul
 		if errorlevel 1 (
 			set /A pass = !pass! + 2
 		)
@@ -24,13 +24,4 @@ for /d %%c in (*) do (
 	)
 	cd %back%
 )
-Rem cd /d %~dp0\FrontEnd
-
-Rem FOR /L %%component IN Dir DO (
-Rem	echo %component%
-Rem )
-Rem cd /d %~dp0\FrontEnd
-Rem FrontEnd.exe > "%~dp0test.txt" < "%~dp0test_documents\FrontEnd\Login\Input\get_user_test.txt"
-Rem FrontEnd.exe < "%~dp0test_documents\FrontEnd\Login\Input\get_user_test.txt" > "%~dp0test.txt"
-Rem TYPE "%~dp0test_documents\FrontEnd\Login\Input\get_user_test.txt"
 ENDLOCAL
