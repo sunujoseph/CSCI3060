@@ -2,4 +2,5 @@ login
 userSS
 advertise
 New Item
-99dollars
+99
+logout

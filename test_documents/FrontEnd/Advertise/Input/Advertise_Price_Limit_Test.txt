@@ -2,4 +2,5 @@ login
 userSS
 advertise
 New Item
-20000000
+200
+logout
