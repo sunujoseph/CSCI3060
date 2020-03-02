@@ -84,33 +84,60 @@ void session::advertise() {
 }
 
 void session::bid() {
+	
 	// bid item
 	// check user types
 	if ((userObject->getUserType() & (user::ADMIN | user::FULL_STANDARD)) != userObject->getUserType()) {
 		cout << "Error: You Do Not Have Privileges To Perform This Transaction" << endl;
 		return;
 	}
-	string itemName = getInputWithSpaces("Enter Item Name: ", "Error: Invalid Name", 25);
+
+
+	string itemName = getInputWithSpaces("Enter Item: ", "Error: Invalid Name", 25);
+	string itemPrice = "";
 	vector<string> currentAvailableItems = FileReader::getAvailableItems();
 	for (int i = 0; i < currentAvailableItems.size() - 1; i++) {
 		string& line = currentAvailableItems[i];
-			if (line.substr(0, 26).compare(itemName) == 0) {
-				//got item name
-				//then get item price
-			}
+		if (line.substr(0, 21).compare(itemName) == 0) {
+			//got item name
+			//then get item price
+			itemPrice = line.substr(57,63);
+		}
 	}
+
+
+	string sellerName = getInputWithSpaces("Enter Seller Username: ", "Error: Invalid Name", 15);
+
+
+
+
 	double preprice = 200.00; // temp value, need to get item price.
-	string minBid = getMonetaryInputAsString("Enter Minimum Bid: ", [preprice](string input) {
+	string minBid = getMonetaryInputAsString("Enter Bid: ", [preprice](string input) {
 		double val = stod(input);
 		if (val < 0) {
 			cout << "Error: Minimum Bid Cannot Be Negative" << endl;
 			return false;
 		}
-		else if (val < (preprice + (preprice*0.05))) {
+		else if (val < (preprice + (preprice * 0.05))) {
 			// val must be higher by 5% the prev bid
 		}
 		return true;
-	});
+
+
+		});
+
+
+
+	string transaction;
+	transaction += "04 ";
+	transaction += pad(itemName, 25, ' ', 'l');
+	transaction += " ";
+	transaction += sellerName;
+	transaction += " ";
+	transaction += userObject->getUsername();
+	transaction += " ";
+	transaction += pad(minBid, 6, '0', 'r');
+	transactionFileWriter::add(transaction);
 }
 
 void session::create() {
