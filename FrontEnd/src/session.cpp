@@ -93,12 +93,14 @@ void session::bid() {
 
 
 	string itemName = getInputWithSpaces("Enter Item: ", "Error: Invalid Name", 25);
+	string itemPrice = "";
 	vector<string> currentAvailableItems = FileReader::getAvailableItems();
 	for (int i = 0; i < currentAvailableItems.size() - 1; i++) {
 		string& line = currentAvailableItems[i];
-		if (line.substr(0, 26).compare(itemName) == 0) {
+		if (line.substr(0, 21).compare(itemName) == 0) {
 			//got item name
 			//then get item price
+			itemPrice = line.substr(57,63);
 		}
 	}
 
